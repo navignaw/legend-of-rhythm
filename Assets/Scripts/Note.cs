@@ -13,16 +13,12 @@ public class Note : MonoBehaviour {
     public NoteType noteType = NoteType.QUARTER;
     public bool dotted = false; // dotted notes have 150% duration
 
+    // How long user needs to hold the note.
+    // Duration of 0 indicates single press (quarter, eighth notes)
     public float duration {
         get {
             float value = 0.0f;
             switch (noteType) {
-                case NoteType.EIGHTH:
-                    value = 0.125f;
-                    break;
-                case NoteType.QUARTER:
-                    value = 0.25f;
-                    break;
                 case NoteType.HALF:
                     value = 0.5f;
                     break;

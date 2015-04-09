@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Chart : MonoBehaviour {
+    public Vector3 startingPos;
     public float scrollSpeed = 1.0f;
     public int noteScore = 1; // score per perfect note
 
@@ -13,6 +14,10 @@ public class Chart : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        Vector3 newPos = transform.position;
+        newPos.x = startingPos.x - scrollSpeed * Song.currentSong.songPos;
+        Debug.Log(newPos);
+        transform.position = newPos;
     }
 
 }

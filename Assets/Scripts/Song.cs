@@ -22,6 +22,7 @@ public class Song : MonoBehaviour {
     void Start () {
         beatTime = 60f / bpm;
         startTick = AudioSettings.dspTime;
+        currentSong = this;
     }
 
     // Update is called once per frame
