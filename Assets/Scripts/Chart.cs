@@ -16,7 +16,6 @@ public class Chart : MonoBehaviour {
     void Update () {
         Vector3 newPos = transform.position;
         newPos.x = startingPos.x - scrollSpeed * Song.currentSong.songPos;
-        Debug.Log(newPos);
         transform.position = newPos;
     }
 

@@ -5,16 +5,20 @@ public enum NoteType {
     EIGHTH,
     QUARTER,
     HALF,
-    WHOLE
+    WHOLE,
+    DOTTED_EIGHTH,
+    DOTTED_QUARTER,
+    DOTTED_HALF,
+    DOTTED_WHOLE
 };
 
 public class Note : MonoBehaviour {
     public Vector3 startingPos;
     public NoteType noteType = NoteType.QUARTER;
-    public bool dotted = false; // dotted notes have 150% duration
+    public float displacement = 1.0f; // how far apart the next note is
 
     // How long user needs to hold the note.
-    // Duration of 0 indicates single press (quarter, eighth notes)
+    // Duration of 0 indicates single press (quarter, eighth notes, etc.)
     public float duration {
         get {
             float value = 0.0f;
@@ -25,8 +29,14 @@ public class Note : MonoBehaviour {
                 case NoteType.WHOLE:
                     value = 1.0f;
                     break;
+                case NoteType.DOTTED_HALF:
+                    value = 0.75f;
+                    break;
+                case NoteType.DOTTED_WHOLE:
+                    value = 1.5f;
+                    break;
             }
-            return value * (dotted ? 1.5f : 1.0f);
+            return value;
         }
     }
 
@@ -35,6 +45,7 @@ public class Note : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        // TODO: Calculate displacement based off NoteType
     }
 
     // Update is called once per frame
