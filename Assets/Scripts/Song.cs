@@ -2,33 +2,53 @@
 using UnityEngine.Audio;
 using System.Collections;
 
+
 [RequireComponent(typeof(AudioSource))]
 public class Song : MonoBehaviour {
     public static Song currentSong;
 
-    public AudioSource audio; // actual music file
-    public string name; // name of song
+    [System.Serializable]
+    public class TimeSignature {
+        public int beats; // number of beats per bar
+        public NoteType unit; // type of note for one beat
+    }
+
+    public AudioSource audioSource; // actual music file
+    public string songName; // name of song
     public string artist; // name of artist
     public float bpm = 120f; // beats per minute
     public float beatTime; // time duration of a single beat in seconds
-    public float songPos = 0.0f; // position in song
+    public float songPos = 0.0f; // position in song in seconds
+    public float currentBeat = 0.0f; // position in song in beats
+    public int currentMeasure = 0; // current measure of song
     public float offset = 0.0f; // extra time before song begins (due to mp3 metadata)
+    public TimeSignature timeSignature;
 
     public Chart chart;
 
-    double startTick;
+    double startTick; // initial dspTime for offsetting
+    bool isPlaying = false;
 
     // Use this for initialization
     void Start () {
         beatTime = 60f / bpm;
-        startTick = AudioSettings.dspTime;
-        currentSong = this;
+        PlaySong(); // TODO: don't call this here
     }
 
     // Update is called once per frame
     void Update () {
-        songPos = (float)(AudioSettings.dspTime - startTick) * audio.pitch - offset;
-        Debug.Log(songPos);
+        if (isPlaying) {
+            songPos = (float)(AudioSettings.dspTime - startTick) * audioSource.pitch - offset;
+            currentBeat = songPos / beatTime;
+            currentMeasure = Mathf.FloorToInt(currentBeat / timeSignature.beats);
+        }
+    }
+
+    void PlaySong() {
+        audioSource.Play();
+        isPlaying = true;
+        startTick = AudioSettings.dspTime;
+        currentSong = this;
     }
 
 }

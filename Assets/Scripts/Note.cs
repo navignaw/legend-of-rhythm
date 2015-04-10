@@ -17,7 +17,7 @@ public class Note : MonoBehaviour {
     public NoteType noteType = NoteType.QUARTER;
     public float displacement = 1.0f; // how far apart the next note is
 
-    // How long user needs to hold the note.
+    // How long user needs to hold the note. Normalized so whole note = 1.
     // Duration of 0 indicates single press (quarter, eighth notes, etc.)
     public float duration {
         get {
@@ -37,6 +37,31 @@ public class Note : MonoBehaviour {
                     break;
             }
             return value;
+        }
+    }
+
+    // How long note actually lasts. Normalized so whole note = 1.
+    public float beatValue {
+        get {
+            switch (noteType) {
+                case NoteType.EIGHTH:
+                    return 0.125f;
+                case NoteType.QUARTER:
+                    return 0.25f;
+                case NoteType.HALF:
+                    return 0.5f;
+                case NoteType.WHOLE:
+                    return 1.0f;
+                case NoteType.DOTTED_EIGHTH:
+                    return 0.1875f;
+                case NoteType.DOTTED_QUARTER:
+                    return 0.375f;
+                case NoteType.DOTTED_HALF:
+                    return 0.75f;
+                case NoteType.DOTTED_WHOLE:
+                    return 1.5f;
+            }
+            return 0.0f;
         }
     }
 
