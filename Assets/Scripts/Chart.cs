@@ -6,20 +6,20 @@ using System.Collections.Generic;
 public class Chart : MonoBehaviour {
     public Vector3 startingPos;
     public float barDisplacement = 1.0f; // spacing after each bar
-    public int noteScore = 1; // score per perfect note
+    public int totalScore = 0;
 
     public List<Note> notes; // list of note objects
-    public List<Transform> bars; // list of bars
+    public List<GameObject> bars; // list of bars
 
-    public Transform PrefabEighthNote;
-    public Transform PrefabQuarterNote;
-    public Transform PrefabHalfNote;
-    public Transform PrefabWholeNote;
-    public Transform PrefabDottedEighthNote;
-    public Transform PrefabDottedQuarterNote;
-    public Transform PrefabDottedHalfNote;
-    public Transform PrefabDottedWholeNote;
-    public Transform PrefabBarLine;
+    public GameObject PrefabEighthNote;
+    public GameObject PrefabQuarterNote;
+    public GameObject PrefabHalfNote;
+    public GameObject PrefabWholeNote;
+    public GameObject PrefabDottedEighthNote;
+    public GameObject PrefabDottedQuarterNote;
+    public GameObject PrefabDottedHalfNote;
+    public GameObject PrefabDottedWholeNote;
+    public GameObject PrefabBarLine;
 
     Song song;
 
@@ -68,8 +68,8 @@ public class Chart : MonoBehaviour {
 
         // TODO: draw time signature, etc.
         Vector3 pos = new Vector3(currentPos, 0, 0);
-        bars = new List<Transform>();
-        bars.Add(Instantiate(PrefabBarLine, pos, Quaternion.identity) as Transform);
+        bars = new List<GameObject>();
+        bars.Add(Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject);
         currentPos += barDisplacement;
 
         foreach (Note note in notes)
@@ -77,7 +77,7 @@ public class Chart : MonoBehaviour {
             // Instantiate sprite
             // TODO: adjust y position based on row on staff
             pos.x = currentPos;
-            note.sprite = Instantiate(GetNotePrefab(note.noteType), pos, Quaternion.identity) as Transform;
+            note.sprite = Instantiate(GetNotePrefab(note.noteType), pos, Quaternion.identity) as GameObject;
 
             // Update beat and position
             currentPos += note.displacement;
@@ -87,7 +87,7 @@ public class Chart : MonoBehaviour {
 
             if (beatCounter >= timeSignature) {
                 // Add bar line
-                bars.Add(Instantiate(PrefabBarLine, pos, Quaternion.identity) as Transform);
+                bars.Add(Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject);
                 currentPos += barDisplacement;
                 beatCounter %= timeSignature;
             }
@@ -95,7 +95,7 @@ public class Chart : MonoBehaviour {
     }
 
     // Return appropriate prefab based on note type
-    Transform GetNotePrefab(NoteType type) {
+    GameObject GetNotePrefab(NoteType type) {
         switch (type) {
             case NoteType.EIGHTH:
                 return PrefabEighthNote;
@@ -134,5 +134,27 @@ public class Chart : MonoBehaviour {
 
     void AnimateNote(int index, bool on) {
         notes[index].Animate(on);
+    }
+
+    // On button press, hit current note
+    public void HitNote() {
+        /* TODO: elapsedBeat only captures how long since last beat;
+         * but if you press early (just before the next beat), we need to
+         * check for that as well
+         */
+        int score = ComputeScore(elapsedBeat);
+        if (score > 0) {
+            totalScore += score;
+            AnimateNote(lastNoteIndex, true);
+        }
+    }
+
+    // TODO: Update score based on timing of press
+    int ComputeScore(float delay) {
+        // Check if delay is under some threshold
+        if (delay < 0.25f) {
+            return 1;
+        }
+        return 0;
     }
 }

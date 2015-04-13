@@ -12,6 +12,11 @@ public class TimeSignature {
 [RequireComponent(typeof(Chart))]
 public class Song : MonoBehaviour {
     public static Song currentSong;
+    public static bool isPlaying {
+        get {
+            return (currentSong != null && currentSong._isPlaying);
+        }
+    }
 
     public AudioSource audioSource; // actual music file
     public string songName; // name of song
@@ -26,9 +31,9 @@ public class Song : MonoBehaviour {
 
     public Chart chart;
     public Note currentNote;
-    public bool isPlaying = false;
 
     double startTick; // initial dspTime for offsetting
+    bool _isPlaying = false;
 
     // Use this for initialization
     void Start () {
@@ -38,19 +43,27 @@ public class Song : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (isPlaying) {
+        if (_isPlaying) {
             songPos = (float)(AudioSettings.dspTime - startTick) * audioSource.pitch - offset;
             currentNote = chart.GetCurrentNote(songPos / beatTime - currentBeat);
             currentBeat = songPos / beatTime;
             currentMeasure = Mathf.FloorToInt(currentBeat / timeSignature.beats);
+
+            ReadInput();
         }
     }
 
     public void PlaySong() {
         audioSource.Play();
-        isPlaying = true;
+        _isPlaying = true;
         startTick = AudioSettings.dspTime;
         currentSong = this;
+    }
+
+    void ReadInput() {
+        if (Input.GetButtonDown("Hit")) {
+            chart.HitNote();
+        }
     }
 
 }

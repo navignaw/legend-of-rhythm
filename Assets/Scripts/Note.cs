@@ -15,7 +15,7 @@ public enum NoteType {
 public class Note : MonoBehaviour {
     public NoteType noteType = NoteType.QUARTER;
     public float displacement = 1.0f; // how far apart the next note is
-    public Transform sprite;
+    public GameObject sprite;
 
     // How long user needs to hold the note. Normalized so whole note = 1.
     // Duration of 0 indicates single press (quarter, eighth notes, etc.)
@@ -80,9 +80,9 @@ public class Note : MonoBehaviour {
     // TODO: Show a flashy animation on the beat
     // For now, we just bounce it up a few pixels
     public void Animate(bool on) {
-        Vector3 pos = sprite.position;
+        Vector3 pos = sprite.transform.position;
         pos.y += on ? 0.1f : -0.1f;
-        sprite.position = pos;
+        sprite.transform.position = pos;
     }
 
 }

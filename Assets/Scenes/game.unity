@@ -130,7 +130,6 @@ MonoBehaviour:
     unit: 1
   chart: {fileID: 0}
   currentNote: {fileID: 0}
-  isPlaying: 0
 --- !u!82 &813554732
 AudioSource:
   m_ObjectHideFlags: 0
@@ -226,21 +225,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPos: {x: 0, y: 0, z: 0}
   barDisplacement: 1
-  noteScore: 1
+  totalScore: 0
   notes: []
   bars: []
-  PrefabEighthNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
-  PrefabQuarterNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
-  PrefabHalfNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3, type: 2}
-  PrefabWholeNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3, type: 2}
-  PrefabDottedEighthNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde,
+  PrefabEighthNote: {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
+  PrefabQuarterNote: {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
+  PrefabHalfNote: {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3, type: 2}
+  PrefabWholeNote: {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3, type: 2}
+  PrefabDottedEighthNote: {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde,
     type: 2}
-  PrefabDottedQuarterNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde,
+  PrefabDottedQuarterNote: {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde,
     type: 2}
-  PrefabDottedHalfNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3, type: 2}
-  PrefabDottedWholeNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3,
+  PrefabDottedHalfNote: {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3, type: 2}
+  PrefabDottedWholeNote: {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3,
     type: 2}
-  PrefabBarLine: {fileID: 490498, guid: effbc235ed118194a80d366c6c0cdd44, type: 2}
+  PrefabBarLine: {fileID: 146024, guid: effbc235ed118194a80d366c6c0cdd44, type: 2}
 --- !u!1 &1395348943
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +444,7 @@ Transform:
   m_GameObject: {fileID: 2008721859}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalScale: {x: 12, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
