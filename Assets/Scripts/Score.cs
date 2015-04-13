@@ -48,15 +48,15 @@ public class Score {
     // Update score based on timing of hit
     public static Score ComputeScore(float delay) {
         // TODO: finetune
-        if (delay < 0.25f) {
+        if (delay < -0.05f) {
+            return Almost;
+        } else if (delay < 0.25f) {
             return Perfect;
         } else if (delay < 0.3f) {
             return Wonderful;
         } else if (delay < 0.4f) {
             return Good;
         } else if (delay < 0.5f) {
-            return Almost;
-        } else if (delay < 0.6f) {
             return Poor;
         }
         return Miss;

@@ -29,7 +29,7 @@ public class Chart : MonoBehaviour {
 
     // TODO: unhardcode
     void AddTestNotes() {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 20; i++) {
             notes.Add(gameObject.AddComponent<Note>() as Note);
             notes.Add(gameObject.AddComponent<Note>() as Note);
             notes.Add(gameObject.AddComponent<Note>() as Note);
@@ -130,28 +130,32 @@ public class Chart : MonoBehaviour {
         float beatValue = notes[lastNoteIndex].beatValue * 4;
         if (elapsedBeat >= beatValue && lastNoteIndex < notes.Count - 1) {
             elapsedBeat -= beatValue;
-            AnimateNote(lastNoteIndex++, false);
-            AnimateNote(lastNoteIndex, true);
+            notes[lastNoteIndex].AnimateBeat(false);
+            notes[++lastNoteIndex].AnimateBeat(true);
         }
         return notes[lastNoteIndex];
     }
 
-    void AnimateNote(int index, bool on) {
-        notes[index].AnimateBeat(on);
-    }
-
     // On button press, hit current note
     public void HitNote() {
-        if (notes[lastNoteIndex].played) {
+        Note note;
+        float delay = elapsedBeat;
+        // TODO: don't hardcode time signature value or threshold to next value
+        float beatValue = notes[lastNoteIndex].beatValue * 4;
+        // If we're really close to next note, hit that one
+        if (beatValue - elapsedBeat < 0.15f && lastNoteIndex + 1 < notes.Count) {
+            delay = elapsedBeat - beatValue;
+            note = notes[lastNoteIndex + 1];
+        } else {
+            note = notes[lastNoteIndex];
+        }
+
+        if (note.played) {
             return;
         }
-        /* TODO: elapsedBeat only captures how long since last beat;
-         * but if you press early (just before the next beat), we need to
-         * check for that as well
-         */
-        Score score = Score.ComputeScore(elapsedBeat);
+        Score score = Score.ComputeScore(delay);
         totalScore += score.value;
-        notes[lastNoteIndex].AnimateHit(score);
+        note.AnimateHit(score);
     }
 
     // TODO: refactor to own UI script?
