@@ -13,9 +13,9 @@ public enum NoteType {
 };
 
 public class Note : MonoBehaviour {
-    public Vector3 startingPos;
     public NoteType noteType = NoteType.QUARTER;
     public float displacement = 1.0f; // how far apart the next note is
+    public GameObject sprite;
 
     // How long user needs to hold the note. Normalized so whole note = 1.
     // Duration of 0 indicates single press (quarter, eighth notes, etc.)

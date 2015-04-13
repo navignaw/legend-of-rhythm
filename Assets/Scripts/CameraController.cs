@@ -13,6 +13,10 @@ public class CameraController : MonoBehaviour {
 
     // Scroll to target (every measure)
     void Update () {
+        if (Song.currentSong == null) {
+            return;
+        }
+
         if (Song.currentSong.currentMeasure > lastMeasure) {
             target = new Vector3(target.x + 5, target.y, target.z); // TODO: scroll to next note
             lastMeasure = Song.currentSong.currentMeasure;
