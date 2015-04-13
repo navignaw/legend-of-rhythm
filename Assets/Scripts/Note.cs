@@ -65,7 +65,7 @@ public class Note : MonoBehaviour {
         }
     }
 
-    bool played = false; // when note has been played
+    public bool played = false; // when note has been played
     int row = 0; // which row on the staff the note lines up with
 
     // Use this for initialization
@@ -79,10 +79,20 @@ public class Note : MonoBehaviour {
 
     // TODO: Show a flashy animation on the beat
     // For now, we just bounce it up a few pixels
-    public void Animate(bool on) {
+    public void AnimateBeat(bool on) {
         Vector3 pos = sprite.transform.position;
         pos.y += on ? 0.1f : -0.1f;
         sprite.transform.position = pos;
+    }
+
+    // Show a flashy animation when the note is hit
+    public void AnimateHit(Score score) {
+        if (score.value > 0) {
+            // TODO: do something more exciting
+            sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+        }
+        score.ShowText(sprite.transform.position);
+        played = true;
     }
 
 }

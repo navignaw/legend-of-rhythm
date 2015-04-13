@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Song))]
 public class Chart : MonoBehaviour {
     public Vector3 startingPos;
-    public float barDisplacement = 1.0f; // spacing after each bar
+    public float barDisplacement = 1f; // spacing after each bar
     public int totalScore = 0;
 
     public List<Note> notes; // list of note objects
@@ -29,7 +29,7 @@ public class Chart : MonoBehaviour {
 
     // TODO: unhardcode
     void AddTestNotes() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 2; i++) {
             notes.Add(gameObject.AddComponent<Note>() as Note);
             notes.Add(gameObject.AddComponent<Note>() as Note);
             notes.Add(gameObject.AddComponent<Note>() as Note);
@@ -92,6 +92,10 @@ public class Chart : MonoBehaviour {
                 beatCounter %= timeSignature;
             }
         }
+
+        // TODO: Add double bar
+        pos.x += 0.2f;
+        bars.Add(Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject);
     }
 
     // Return appropriate prefab based on note type
@@ -133,28 +137,28 @@ public class Chart : MonoBehaviour {
     }
 
     void AnimateNote(int index, bool on) {
-        notes[index].Animate(on);
+        notes[index].AnimateBeat(on);
     }
 
     // On button press, hit current note
     public void HitNote() {
+        if (notes[lastNoteIndex].played) {
+            return;
+        }
         /* TODO: elapsedBeat only captures how long since last beat;
          * but if you press early (just before the next beat), we need to
          * check for that as well
          */
-        int score = ComputeScore(elapsedBeat);
-        if (score > 0) {
-            totalScore += score;
-            AnimateNote(lastNoteIndex, true);
-        }
+        Score score = Score.ComputeScore(elapsedBeat);
+        totalScore += score.value;
+        notes[lastNoteIndex].AnimateHit(score);
     }
 
-    // TODO: Update score based on timing of press
-    int ComputeScore(float delay) {
-        // Check if delay is under some threshold
-        if (delay < 0.25f) {
-            return 1;
-        }
-        return 0;
+    // TODO: refactor to own UI script?
+    void OnGUI() {
+        GUIStyle style = new GUIStyle();
+        style.fontSize = 20;
+        GUILayout.Label("Score: " + totalScore.ToString(), style);
     }
+
 }

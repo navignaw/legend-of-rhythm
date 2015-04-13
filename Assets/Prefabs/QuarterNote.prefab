@@ -40,9 +40,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0348ce6aed3b043a2a625332c868f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingPos: {x: 0, y: 0, z: 0}
   noteType: 1
   displacement: 1
+  sprite: {fileID: 0}
+  played: 0
 --- !u!212 &21207524
 SpriteRenderer:
   m_ObjectHideFlags: 1
