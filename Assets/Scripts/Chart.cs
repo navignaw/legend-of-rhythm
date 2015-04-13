@@ -7,6 +7,7 @@ public class Chart : MonoBehaviour {
     public int noteScore = 1; // score per perfect note
 
     public List<Note> notes; // array of notes
+    public List<Transform> bars;
 
     public Transform PrefabEighthNote;
     public Transform PrefabQuarterNote;
@@ -16,6 +17,9 @@ public class Chart : MonoBehaviour {
     public Transform PrefabDottedQuarterNote;
     public Transform PrefabDottedHalfNote;
     public Transform PrefabDottedWholeNote;
+    public Transform PrefabBarLine;
+
+    float barDisplacement = 1.0f;
 
     // TODO: unhardcode
     void AddTestNotes() {
@@ -35,8 +39,11 @@ public class Chart : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        notes = new List<Note>();
+
         AddTestNotes();
         drawNotes();
+        Song.currentSong.PlaySong();
     }
 
     // Update is called once per frame
@@ -52,20 +59,29 @@ public class Chart : MonoBehaviour {
         float timeSignature = 4.0f; // TODO: don't hardcode this
         float currentPos = 0.0f; // x position of last sprite
 
+        // TODO: draw time signature, etc.
+        Vector3 pos = new Vector3(currentPos, 0, 0);
+        bars = new List<Transform>();
+        bars.Add(Instantiate(PrefabBarLine, pos, Quaternion.identity) as Transform);
+        currentPos += barDisplacement;
+
         foreach (Note note in notes)
         {
             // Instantiate sprite
             // TODO: adjust y position based on row on staff
-            Vector3 pos = new Vector3(currentPos, 0, 0);
-            note.sprite = Instantiate(getNotePrefab(note.noteType), pos, Quaternion.identity) as GameObject;
+            pos.x = currentPos;
+            note.sprite = Instantiate(getNotePrefab(note.noteType), pos, Quaternion.identity) as Transform;
 
             // Update beat and position
             currentPos += note.displacement;
+            pos.x = currentPos;
             currentBeat = note.beatValue * timeSignature;
             beatCounter += currentBeat;
 
             if (beatCounter >= timeSignature) {
-                // TODO: add bar line
+                // Add bar line
+                bars.Add(Instantiate(PrefabBarLine, pos, Quaternion.identity) as Transform);
+                currentPos += barDisplacement;
                 beatCounter %= timeSignature;
             }
         }

@@ -25,14 +25,14 @@ public class Song : MonoBehaviour {
     public TimeSignature timeSignature;
 
     public Chart chart;
+    public bool isPlaying = false;
 
     double startTick; // initial dspTime for offsetting
-    bool isPlaying = false;
 
     // Use this for initialization
     void Start () {
         beatTime = 60f / bpm;
-        PlaySong(); // TODO: don't call this here
+        currentSong = this;
     }
 
     // Update is called once per frame
@@ -44,11 +44,10 @@ public class Song : MonoBehaviour {
         }
     }
 
-    void PlaySong() {
+    public void PlaySong() {
         audioSource.Play();
         isPlaying = true;
         startTick = AudioSettings.dspTime;
-        currentSong = this;
     }
 
 }

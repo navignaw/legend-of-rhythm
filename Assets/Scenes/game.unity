@@ -267,6 +267,7 @@ MonoBehaviour:
   startingPos: {x: 0, y: 0, z: 0}
   noteScore: 1
   notes: []
+  bars: []
   PrefabEighthNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
   PrefabQuarterNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
   PrefabHalfNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3, type: 2}
