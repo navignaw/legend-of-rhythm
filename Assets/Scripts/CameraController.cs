@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
     public Vector3 target; // target position to track
+    public Vector3 offset; // offset from bar to display
     public float scrollSpeed = 2.0f; // how smoothly to transition camera
 
     int lastMeasure = 0;
@@ -26,7 +27,7 @@ public class CameraController : MonoBehaviour {
 
         Vector3 newPos = transform.position;
         newPos.x = Mathf.Lerp(newPos.x, target.x, scrollSpeed * Time.deltaTime);
-        transform.position = newPos;
+        transform.position = newPos + offset;
     }
 
 }
