@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(Song))]
 public class Chart : MonoBehaviour {
     public Vector3 startingPos;
+    public float barDisplacement = 1.0f; // spacing after each bar
     public int noteScore = 1; // score per perfect note
 
-    public List<Note> notes; // array of notes
-    public List<Transform> bars;
+    public List<Note> notes; // list of note objects
+    public List<Transform> bars; // list of bars
 
     public Transform PrefabEighthNote;
     public Transform PrefabQuarterNote;
@@ -19,31 +21,36 @@ public class Chart : MonoBehaviour {
     public Transform PrefabDottedWholeNote;
     public Transform PrefabBarLine;
 
-    float barDisplacement = 1.0f;
+    Song song;
+
+    // For keeping track of current note:
+    float elapsedBeat = 0.0f; // how much of current note has elapsed
+    int lastNoteIndex = 0;
 
     // TODO: unhardcode
     void AddTestNotes() {
-        notes.Add(gameObject.AddComponent<Note>() as Note);
-        notes.Add(gameObject.AddComponent<Note>() as Note);
-        notes.Add(gameObject.AddComponent<Note>() as Note);
-        notes.Add(gameObject.AddComponent<Note>() as Note);
-        Note newNote = gameObject.AddComponent<Note>() as Note;
-        newNote.noteType = NoteType.HALF;
-        newNote.displacement = 1.5f;
-        notes.Add(newNote);
-        newNote = gameObject.AddComponent<Note>() as Note;
-        newNote.noteType = NoteType.HALF;
-        newNote.displacement = 1.5f;
-        notes.Add(newNote);
+        for (int i = 0; i < 10; i++) {
+            notes.Add(gameObject.AddComponent<Note>() as Note);
+            notes.Add(gameObject.AddComponent<Note>() as Note);
+            notes.Add(gameObject.AddComponent<Note>() as Note);
+            notes.Add(gameObject.AddComponent<Note>() as Note);
+            notes.Add(gameObject.AddComponent<Note>() as Note);
+            notes.Add(gameObject.AddComponent<Note>() as Note);
+            Note newNote = gameObject.AddComponent<Note>() as Note;
+            newNote.noteType = NoteType.HALF;
+            newNote.displacement = 1.5f;
+            notes.Add(newNote);
+        }
     }
 
     // Use this for initialization
     void Start () {
+        song = GetComponent<Song>();
         notes = new List<Note>();
 
         AddTestNotes();
-        drawNotes();
-        Song.currentSong.PlaySong();
+        DrawNotes();
+        song.PlaySong();
     }
 
     // Update is called once per frame
@@ -52,7 +59,7 @@ public class Chart : MonoBehaviour {
 
 
     // Instantiate prefabs for each note in note array
-    void drawNotes()
+    void DrawNotes()
     {
         float beatCounter = 0.0f;
         float currentBeat = 0.0f;
@@ -70,7 +77,7 @@ public class Chart : MonoBehaviour {
             // Instantiate sprite
             // TODO: adjust y position based on row on staff
             pos.x = currentPos;
-            note.sprite = Instantiate(getNotePrefab(note.noteType), pos, Quaternion.identity) as Transform;
+            note.sprite = Instantiate(GetNotePrefab(note.noteType), pos, Quaternion.identity) as Transform;
 
             // Update beat and position
             currentPos += note.displacement;
@@ -88,7 +95,7 @@ public class Chart : MonoBehaviour {
     }
 
     // Return appropriate prefab based on note type
-    Transform getNotePrefab(NoteType type) {
+    Transform GetNotePrefab(NoteType type) {
         switch (type) {
             case NoteType.EIGHTH:
                 return PrefabEighthNote;
@@ -110,5 +117,22 @@ public class Chart : MonoBehaviour {
 
         Debug.Log("invalid note type!");
         return null;
+    }
+
+    // Return currently playing note in song
+    public Note GetCurrentNote(float deltaBeat) {
+        elapsedBeat += deltaBeat;
+        // TODO: don't hardcode time signature value
+        float beatValue = notes[lastNoteIndex].beatValue * 4;
+        if (elapsedBeat >= beatValue && lastNoteIndex < notes.Count - 1) {
+            elapsedBeat -= beatValue;
+            AnimateNote(lastNoteIndex++, false);
+            AnimateNote(lastNoteIndex, true);
+        }
+        return notes[lastNoteIndex];
+    }
+
+    void AnimateNote(int index, bool on) {
+        notes[index].Animate(on);
     }
 }

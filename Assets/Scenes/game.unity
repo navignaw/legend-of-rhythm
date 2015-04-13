@@ -97,6 +97,7 @@ GameObject:
   - 4: {fileID: 813554733}
   - 82: {fileID: 813554732}
   - 114: {fileID: 813554731}
+  - 114: {fileID: 813554734}
   m_Layer: 0
   m_Name: Song1
   m_TagString: Untagged
@@ -127,7 +128,9 @@ MonoBehaviour:
   timeSignature:
     beats: 4
     unit: 1
-  chart: {fileID: 1649526692}
+  chart: {fileID: 0}
+  currentNote: {fileID: 0}
+  isPlaying: 0
 --- !u!82 &813554732
 AudioSource:
   m_ObjectHideFlags: 0
@@ -210,6 +213,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1737899506}
   m_RootOrder: 0
+--- !u!114 &813554734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 813554730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7142c29f69c93c4090a68c73b9240ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPos: {x: 0, y: 0, z: 0}
+  barDisplacement: 1
+  noteScore: 1
+  notes: []
+  bars: []
+  PrefabEighthNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
+  PrefabQuarterNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
+  PrefabHalfNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3, type: 2}
+  PrefabWholeNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3, type: 2}
+  PrefabDottedEighthNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde,
+    type: 2}
+  PrefabDottedQuarterNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde,
+    type: 2}
+  PrefabDottedHalfNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3, type: 2}
+  PrefabDottedWholeNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3,
+    type: 2}
+  PrefabBarLine: {fileID: 490498, guid: effbc235ed118194a80d366c6c0cdd44, type: 2}
 --- !u!1 &1395348943
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,60 +268,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1 &1649526691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1649526693}
-  - 114: {fileID: 1649526692}
-  m_Layer: 0
-  m_Name: Chart
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1649526692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1649526691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7142c29f69c93c4090a68c73b9240ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingPos: {x: 0, y: 0, z: 0}
-  noteScore: 1
-  notes: []
-  bars: []
-  PrefabEighthNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
-  PrefabQuarterNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
-  PrefabHalfNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3, type: 2}
-  PrefabWholeNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3, type: 2}
-  PrefabDottedEighthNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde,
-    type: 2}
-  PrefabDottedQuarterNote: {fileID: 457856, guid: e337c7cdcd034d942bc6206418d5ccde,
-    type: 2}
-  PrefabDottedHalfNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3, type: 2}
-  PrefabDottedWholeNote: {fileID: 423710, guid: c087090473f042c43a17c771936a1ff3,
-    type: 2}
---- !u!4 &1649526693
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1649526691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
 --- !u!1 &1737899505
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +277,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1737899506}
   m_Layer: 0
-  m_Name: Songs
+  m_Name: SongCharts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

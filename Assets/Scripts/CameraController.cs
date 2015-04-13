@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour {
 
     // Scroll to target (every measure)
     void Update () {
-        if (!Song.currentSong.isPlaying) {
+        if (Song.currentSong == null || !Song.currentSong.isPlaying) {
             return;
         }
 

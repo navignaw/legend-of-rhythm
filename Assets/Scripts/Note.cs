@@ -77,4 +77,12 @@ public class Note : MonoBehaviour {
     void Update () {
     }
 
+    // TODO: Show a flashy animation on the beat
+    // For now, we just bounce it up a few pixels
+    public void Animate(bool on) {
+        Vector3 pos = sprite.position;
+        pos.y += on ? 0.1f : -0.1f;
+        sprite.position = pos;
+    }
+
 }

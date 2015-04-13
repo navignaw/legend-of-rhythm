@@ -2,16 +2,16 @@
 using UnityEngine.Audio;
 using System.Collections;
 
+[System.Serializable]
+public class TimeSignature {
+    public int beats; // number of beats per bar
+    public NoteType unit; // type of note for one beat
+}
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(Chart))]
 public class Song : MonoBehaviour {
     public static Song currentSong;
-
-    [System.Serializable]
-    public class TimeSignature {
-        public int beats; // number of beats per bar
-        public NoteType unit; // type of note for one beat
-    }
 
     public AudioSource audioSource; // actual music file
     public string songName; // name of song
@@ -25,6 +25,7 @@ public class Song : MonoBehaviour {
     public TimeSignature timeSignature;
 
     public Chart chart;
+    public Note currentNote;
     public bool isPlaying = false;
 
     double startTick; // initial dspTime for offsetting
@@ -32,13 +33,14 @@ public class Song : MonoBehaviour {
     // Use this for initialization
     void Start () {
         beatTime = 60f / bpm;
-        currentSong = this;
+        chart = GetComponent<Chart>();
     }
 
     // Update is called once per frame
     void Update () {
         if (isPlaying) {
             songPos = (float)(AudioSettings.dspTime - startTick) * audioSource.pitch - offset;
+            currentNote = chart.GetCurrentNote(songPos / beatTime - currentBeat);
             currentBeat = songPos / beatTime;
             currentMeasure = Mathf.FloorToInt(currentBeat / timeSignature.beats);
         }
@@ -48,6 +50,7 @@ public class Song : MonoBehaviour {
         audioSource.Play();
         isPlaying = true;
         startTick = AudioSettings.dspTime;
+        currentSong = this;
     }
 
 }
