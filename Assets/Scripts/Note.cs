@@ -95,4 +95,10 @@ public class Note : MonoBehaviour {
         played = true;
     }
 
+    // Show a flashy animation when the note is released
+    public void AnimateRelease() {
+        if (duration > 0) {
+            sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
+        }
+    }
 }

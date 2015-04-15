@@ -63,6 +63,8 @@ public class Song : MonoBehaviour {
     void ReadInput() {
         if (Input.GetButtonDown("Hit")) {
             chart.HitNote();
+        } else if (Input.GetButtonUp("Hit")) {
+            chart.ReleaseNote();
         }
     }
 

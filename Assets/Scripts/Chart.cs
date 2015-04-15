@@ -24,6 +24,7 @@ public class Chart : MonoBehaviour {
     Song song;
 
     // For keeping track of current note:
+    Note currentNote; // currently held note
     float elapsedBeat = 0.0f; // how much of current note has elapsed
     int lastNoteIndex = 0;
 
@@ -148,24 +149,38 @@ public class Chart : MonoBehaviour {
 
     // On button press, hit current note
     public void HitNote() {
-        Note note;
         float delay = elapsedBeat;
         // TODO: don't hardcode time signature value or threshold to next value
         float beatValue = notes[lastNoteIndex].beatValue * 4;
         // If we're really close to next note, hit that one
         if (beatValue - elapsedBeat < 0.15f && lastNoteIndex + 1 < notes.Count) {
             delay = elapsedBeat - beatValue;
-            note = notes[lastNoteIndex + 1];
+            currentNote = notes[lastNoteIndex + 1];
         } else {
-            note = notes[lastNoteIndex];
+            currentNote = notes[lastNoteIndex];
         }
 
-        if (note.played) {
+        if (currentNote.played) {
             return;
         }
         Score score = Score.ComputeScore(delay);
         totalScore += score.value;
-        note.AnimateHit(score);
+        currentNote.AnimateHit(score);
+
+        if (currentNote.duration == 0) {
+            currentNote = null;
+        }
+    }
+
+    // On button release, check held note
+    public void ReleaseNote() {
+        if (currentNote == null) {
+            return;
+        }
+
+        // TODO: Calculate score from holding notes
+        currentNote.AnimateRelease();
+        currentNote = null;
     }
 
     // TODO: refactor to own UI script?
