@@ -29,7 +29,7 @@ public class Chart : MonoBehaviour {
 
     // TODO: unhardcode
     void AddTestNotes() {
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 10; i++) {
             notes.Add(gameObject.AddComponent<Note>() as Note);
             notes.Add(gameObject.AddComponent<Note>() as Note);
             notes.Add(gameObject.AddComponent<Note>() as Note);
@@ -38,7 +38,17 @@ public class Chart : MonoBehaviour {
             notes.Add(gameObject.AddComponent<Note>() as Note);
             Note newNote = gameObject.AddComponent<Note>() as Note;
             newNote.noteType = NoteType.HALF;
-            newNote.displacement = 1.5f;
+            newNote.displacement = 1.8f;
+            notes.Add(newNote);
+            notes.Add(gameObject.AddComponent<Note>() as Note);
+            notes.Add(gameObject.AddComponent<Note>() as Note);
+            newNote = gameObject.AddComponent<Note>() as Note;
+            newNote.noteType = NoteType.HALF;
+            newNote.displacement = 1.8f;
+            notes.Add(newNote);
+            newNote = gameObject.AddComponent<Note>() as Note;
+            newNote.noteType = NoteType.WHOLE;
+            newNote.displacement = 3f;
             notes.Add(newNote);
         }
     }
