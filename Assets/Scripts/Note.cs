@@ -90,15 +90,21 @@ public class Note : MonoBehaviour {
         if (score.value > 0) {
             // TODO: do something more exciting
             sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            score.ShowText(sprite.transform.position, Color.black);
+        } else {
+            score.ShowText(sprite.transform.position, Color.red);
         }
-        score.ShowText(sprite.transform.position);
         played = true;
     }
 
     // Show a flashy animation when the note is released
-    public void AnimateRelease() {
-        if (duration > 0) {
+    public void AnimateRelease(Score score) {
+        if (score.value > 0) {
             sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
+            score.ShowText(sprite.transform.position, Color.blue);
+        } else {
+            // TODO: show animation for miss
+            score.ShowText(sprite.transform.position, Color.red);
         }
     }
 }

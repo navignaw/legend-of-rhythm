@@ -139,10 +139,22 @@ public class Chart : MonoBehaviour {
         elapsedBeat += deltaBeat;
         // TODO: don't hardcode time signature value
         float beatValue = notes[lastNoteIndex].beatValue * 4;
+
+        // Check if song beat has moved on to next note
         if (elapsedBeat >= beatValue && lastNoteIndex < notes.Count - 1) {
+            if (currentNote != null && currentNote == notes[lastNoteIndex]) {
+                ReleaseNote(); // release held note automatically
+            }
+
             elapsedBeat -= beatValue;
             notes[lastNoteIndex].AnimateBeat(false);
             notes[++lastNoteIndex].AnimateBeat(true);
+
+        // Otherwise, check to miss an unplayed note
+        } else if (elapsedBeat > Score.MISS_THRESHOLD) {
+            if (!notes[lastNoteIndex].played) {
+                notes[lastNoteIndex].AnimateHit(Score.Miss);
+            }
         }
         return notes[lastNoteIndex];
     }
@@ -161,13 +173,16 @@ public class Chart : MonoBehaviour {
         }
 
         if (currentNote.played) {
+            currentNote = null;
             return;
         }
-        Score score = Score.ComputeScore(delay);
+
+        // Compute score and play animation
+        Score score = Score.ComputeScore(delay, true);
         totalScore += score.value;
         currentNote.AnimateHit(score);
 
-        if (currentNote.duration == 0) {
+        if (currentNote.duration == 0 || score == Score.Miss) {
             currentNote = null;
         }
     }
@@ -178,8 +193,16 @@ public class Chart : MonoBehaviour {
             return;
         }
 
-        // TODO: Calculate score from holding notes
-        currentNote.AnimateRelease();
+        if (currentNote.duration > 0) {
+            float delay = elapsedBeat;
+            // TODO: don't hardcode time signature value or threshold to next value
+            float duration = currentNote.duration * 4;
+
+            // Compute score and play animation
+            Score score = Score.ComputeScore (duration - delay, false);
+            totalScore += score.value;
+            currentNote.AnimateRelease(score);
+        }
         currentNote = null;
     }
 
