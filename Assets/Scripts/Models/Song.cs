@@ -43,6 +43,11 @@ public class Song : MonoBehaviour {
             currentBeat = songPos / beatTime;
             currentMeasure = Mathf.FloorToInt(currentBeat / timeSignature.beats);
 
+            // Check if we've reached end of song as determined by notes
+            if (currentMeasure >= chart.bars.Count - 1) {
+                EndSong();
+            }
+
             ReadInput();
         }
     }
@@ -51,6 +56,12 @@ public class Song : MonoBehaviour {
         audioSource.Play();
         startTick = AudioSettings.dspTime;
         currentSong = this;
+    }
+
+    public void EndSong() {
+        audioSource.Stop();
+        // TODO: show scores
+        currentSong = null;
     }
 
     void ReadInput() {

@@ -1,27 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
+[RequireComponent(typeof(Camera))]
 public class CameraController : MonoBehaviour {
     public Vector3 target; // target position to track
     public Vector3 offset; // offset from bar to display
-    public float scrollSpeed = 2.0f; // how smoothly to transition camera
+    public float scrollSpeed = 2f; // how smoothly to transition camera
+    public float offsetRight = 2f; // offset from rightmost bar
 
     int lastMeasure = 0;
+    float camWidth;
+    float camHeight;
 
     // Use this for initialization
     void Start () {
+        camHeight = GetComponent<Camera>().orthographicSize * 2f;
+        camWidth = GetComponent<Camera>().aspect * camHeight;
     }
 
     // Scroll to target (every measure)
     void Update () {
-        if (!Song.isPlaying) {
-            return;
-        }
-
-        if (Song.currentSong.currentMeasure > lastMeasure) {
+        if (Song.isPlaying && Song.currentSong.currentMeasure > lastMeasure) {
             lastMeasure = Song.currentSong.currentMeasure;
-            if (lastMeasure < Song.currentSong.chart.bars.Count) {
-                target = Song.currentSong.chart.bars[lastMeasure].transform.position;
+            List<GameObject> bars = Song.currentSong.chart.bars;
+            if (lastMeasure < bars.Count) {
+                target = bars[lastMeasure].transform.position;
+                float xMax = bars[bars.Count - 1].transform.position.x - camWidth / 2f - offsetRight;
+                target.x = Mathf.Clamp(target.x, 0f, xMax);
             }
         }
 

@@ -31,7 +31,7 @@ public class Chart : MonoBehaviour {
 
     // TODO: unhardcode
     void AddTestNotes() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             notes.Add(gameObject.AddComponent<Note>() as Note);
             notes.Add(gameObject.AddComponent<Note>() as Note);
             notes.Add(gameObject.AddComponent<Note>() as Note);
