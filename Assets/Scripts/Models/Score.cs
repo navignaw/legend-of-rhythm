@@ -98,12 +98,12 @@ public class Score {
 
     public void ShowText(Vector3 pos, Color color) {
         GameObject textObject = new GameObject();
-        textObject.AddComponent<GUIText>();
-        textObject.GetComponent<GUIText>().text = text;
-        textObject.GetComponent<GUIText>().fontSize = 20;
-        textObject.GetComponent<GUIText>().color = color;
-        textObject.AddComponent<ScoreText>();
-        textObject.GetComponent<ScoreText>().target = pos;
+        GUIText guiText = textObject.AddComponent<GUIText>();
+        guiText.text = text;
+        guiText.fontSize = 20;
+        guiText.color = color;
+        ScoreText scoreText = textObject.AddComponent<ScoreText>();
+        scoreText.target = pos;
         Object.Destroy(textObject, 1f); // destroy after a second
     }
 

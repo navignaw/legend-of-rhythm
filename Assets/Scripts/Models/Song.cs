@@ -6,6 +6,21 @@ using System.Collections;
 public class TimeSignature {
     public int beats; // number of beats per bar
     public NoteType unit; // type of note for one beat
+
+    public float multiplier {
+        get {
+            switch (unit) {
+                case NoteType.EIGHTH:
+                    return 8f;
+                case NoteType.QUARTER:
+                    return 4f;
+                case NoteType.HALF:
+                    return 2f;
+            }
+            Debug.Log("unexpected time signature!");
+            return 1f;
+        }
+    }
 }
 
 [RequireComponent(typeof(AudioSource))]
@@ -14,11 +29,10 @@ public class Song : MonoBehaviour {
     public static Song currentSong;
     public static bool isPlaying {
         get {
-            return (currentSong != null && currentSong._isPlaying);
+            return (currentSong != null && currentSong.audioSource.isPlaying);
         }
     }
 
-    public AudioSource audioSource; // actual music file
     public string songName; // name of song
     public string artist; // name of artist
     public float bpm = 120f; // beats per minute
@@ -32,18 +46,19 @@ public class Song : MonoBehaviour {
     public Chart chart;
     public Note currentNote;
 
+    AudioSource audioSource; // actual music file
     double startTick; // initial dspTime for offsetting
-    bool _isPlaying = false;
 
     // Use this for initialization
     void Start () {
         beatTime = 60f / bpm;
         chart = GetComponent<Chart>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update () {
-        if (_isPlaying) {
+        if (audioSource.isPlaying) {
             songPos = (float)(AudioSettings.dspTime - startTick) * audioSource.pitch - offset;
             currentNote = chart.GetCurrentNote(songPos / beatTime - currentBeat);
             currentBeat = songPos / beatTime;
@@ -55,7 +70,6 @@ public class Song : MonoBehaviour {
 
     public void PlaySong() {
         audioSource.Play();
-        _isPlaying = true;
         startTick = AudioSettings.dspTime;
         currentSong = this;
     }

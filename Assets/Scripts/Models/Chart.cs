@@ -199,7 +199,7 @@ public class Chart : MonoBehaviour {
             float duration = currentNote.duration * 4;
 
             // Compute score and play animation
-            Score score = Score.ComputeScore (duration - delay, false);
+            Score score = Score.ComputeScore(duration - delay, false);
             totalScore += score.value;
             currentNote.AnimateRelease(score);
         }
