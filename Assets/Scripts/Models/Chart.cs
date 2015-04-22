@@ -31,7 +31,7 @@ public class Chart : MonoBehaviour {
 
     // TODO: unhardcode
     void AddTestNotes() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 15; i++) {
             notes.Add(gameObject.AddComponent<Note>() as Note);
             notes.Add(gameObject.AddComponent<Note>() as Note);
             notes.Add(gameObject.AddComponent<Note>() as Note);
@@ -80,7 +80,9 @@ public class Chart : MonoBehaviour {
         // TODO: draw time signature, etc.
         Vector3 pos = new Vector3(currentPos, 0, 0);
         bars = new List<GameObject>();
-        bars.Add(Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject);
+        GameObject bar = Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject;
+        bar.transform.parent = gameObject.transform;
+        bars.Add(bar);
         currentPos += barDisplacement;
 
         foreach (Note note in notes)
@@ -89,6 +91,7 @@ public class Chart : MonoBehaviour {
             // TODO: adjust y position based on row on staff
             pos.x = currentPos;
             note.sprite = Instantiate(GetNotePrefab(note.noteType), pos, Quaternion.identity) as GameObject;
+            note.sprite.transform.parent = gameObject.transform;
 
             // Update beat and position
             currentPos += note.displacement;
@@ -98,7 +101,9 @@ public class Chart : MonoBehaviour {
 
             if (beatCounter >= song.timeSignature.beats) {
                 // Add bar line
-                bars.Add(Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject);
+                bar = Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject;
+                bar.transform.parent = gameObject.transform;
+                bars.Add(bar);
                 currentPos += barDisplacement;
                 beatCounter %= song.timeSignature.beats;
             }
@@ -106,7 +111,9 @@ public class Chart : MonoBehaviour {
 
         // TODO: Add double bar
         pos.x += 0.2f;
-        bars.Add(Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject);
+        bar = Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject;
+        bar.transform.parent = gameObject.transform;
+        bars.Add(bar);
     }
 
     // Return appropriate prefab based on note type

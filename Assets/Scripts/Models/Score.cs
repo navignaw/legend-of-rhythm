@@ -98,6 +98,7 @@ public class Score {
 
     public void ShowText(Vector3 pos, Color color) {
         GameObject textObject = new GameObject();
+        textObject.name = text;
         GUIText guiText = textObject.AddComponent<GUIText>();
         guiText.text = text;
         guiText.fontSize = 20;
