@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9420390d8eea1aa4e98295c0e349e1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isClone: 0
 --- !u!1 &813554730
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9420390d8eea1aa4e98295c0e349e1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isClone: 0
 --- !u!1 &1589354565
 GameObject:
   m_ObjectHideFlags: 0

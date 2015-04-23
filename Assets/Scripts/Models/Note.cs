@@ -13,9 +13,10 @@ public enum NoteType {
 };
 
 public class Note : MonoBehaviour {
-    public NoteType noteType = NoteType.QUARTER;
-    public float displacement = 1.0f; // how far apart the next note is
     public GameObject sprite;
+    public NoteType noteType = NoteType.QUARTER;
+    // TODO: Calculate displacement based off NoteType
+    public float displacement = 1.0f; // how far apart the next note is
 
     // How long user needs to hold the note. Normalized so whole note = 1.
     // Duration of 0 indicates single press (quarter, eighth notes, etc.)
@@ -67,14 +68,20 @@ public class Note : MonoBehaviour {
 
     public bool played = false; // when note has been played
     int row = 0; // which row on the staff the note lines up with
+    bool falling = false;
 
     // Use this for initialization
     void Start () {
-        // TODO: Calculate displacement based off NoteType
     }
 
     // Update is called once per frame
     void Update () {
+        if (falling && sprite.activeInHierarchy) {
+            sprite.transform.Rotate(8f * Vector3.back * Time.deltaTime);
+            if (!sprite.GetComponent<SpriteRenderer>().isVisible) {
+                sprite.SetActive(false);
+            }
+        }
     }
 
     // TODO: Show a flashy animation on the beat
@@ -92,7 +99,10 @@ public class Note : MonoBehaviour {
             sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             score.ShowText(sprite.transform.position, Color.black);
         } else {
+            // TODO: replace with falling animation
             score.ShowText(sprite.transform.position, Color.red);
+            sprite.AddComponent<Rigidbody2D>(); // add gravity
+            falling = true;
         }
         played = true;
     }
