@@ -10,7 +10,8 @@ public class Chart : MonoBehaviour {
 
     const float NEXT_NOTE_THRESHOLD = 0.15f; // threshold before we register a hit as the next note
 
-    public List<Note> notes; // list of note objects
+    public List<NoteType> noteTypes; // list of note types
+    public List<Note> notes; // list of note objects (attached to birb prefab)
     public List<GameObject> bars; // list of bars
     Song song;
 
@@ -29,37 +30,27 @@ public class Chart : MonoBehaviour {
     float elapsedBeat = 0.0f; // how much of current note has elapsed
     int lastNoteIndex = 0;
 
-    // TODO: unhardcode
+    // TODO(Roger): parse string or text file to get NoteTypes
     void AddTestNotes() {
+        noteTypes = new List<NoteType>();
         for (int i = 0; i < 15; i++) {
-            notes.Add(gameObject.AddComponent<Note>() as Note);
-            notes.Add(gameObject.AddComponent<Note>() as Note);
-            notes.Add(gameObject.AddComponent<Note>() as Note);
-            notes.Add(gameObject.AddComponent<Note>() as Note);
-            notes.Add(gameObject.AddComponent<Note>() as Note);
-            notes.Add(gameObject.AddComponent<Note>() as Note);
-            Note newNote = gameObject.AddComponent<Note>() as Note;
-            newNote.noteType = NoteType.HALF;
-            newNote.displacement = 1.8f;
-            notes.Add(newNote);
-            notes.Add(gameObject.AddComponent<Note>() as Note);
-            notes.Add(gameObject.AddComponent<Note>() as Note);
-            newNote = gameObject.AddComponent<Note>() as Note;
-            newNote.noteType = NoteType.HALF;
-            newNote.displacement = 1.8f;
-            notes.Add(newNote);
-            newNote = gameObject.AddComponent<Note>() as Note;
-            newNote.noteType = NoteType.WHOLE;
-            newNote.displacement = 3f;
-            notes.Add(newNote);
+            noteTypes.Add(NoteType.QUARTER);
+            noteTypes.Add(NoteType.QUARTER);
+            noteTypes.Add(NoteType.QUARTER);
+            noteTypes.Add(NoteType.QUARTER);
+            noteTypes.Add(NoteType.QUARTER);
+            noteTypes.Add(NoteType.QUARTER);
+            noteTypes.Add(NoteType.HALF);
+            noteTypes.Add(NoteType.QUARTER);
+            noteTypes.Add(NoteType.QUARTER);
+            noteTypes.Add(NoteType.HALF);
+            noteTypes.Add(NoteType.WHOLE);
         }
     }
 
     // Use this for initialization
     void Start () {
         song = GetComponent<Song>();
-        notes = new List<Note>();
-
         AddTestNotes();
         DrawNotes();
         song.PlaySong();
@@ -77,21 +68,25 @@ public class Chart : MonoBehaviour {
         float currentBeat = 0.0f;
         float currentPos = 0.0f; // x position of last sprite
 
+        notes = new List<Note>();
+        bars = new List<GameObject>();
+
         // TODO: draw time signature, etc.
         Vector3 pos = new Vector3(currentPos, 0, 0);
-        bars = new List<GameObject>();
         GameObject bar = Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject;
         bar.transform.parent = gameObject.transform;
         bars.Add(bar);
         currentPos += barDisplacement;
 
-        foreach (Note note in notes)
+        foreach (NoteType noteType in noteTypes)
         {
             // Instantiate sprite
             // TODO: adjust y position based on row on staff
             pos.x = currentPos;
-            note.sprite = Instantiate(GetNotePrefab(note.noteType), pos, Quaternion.identity) as GameObject;
-            note.sprite.transform.parent = gameObject.transform;
+            GameObject birb = Instantiate(GetNotePrefab(noteType), pos, Quaternion.identity) as GameObject;
+            birb.transform.parent = gameObject.transform;
+            Note note = birb.GetComponent<Note>();
+            notes.Add(note);
 
             // Update beat and position
             currentPos += note.displacement;

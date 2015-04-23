@@ -13,7 +13,6 @@ public enum NoteType {
 };
 
 public class Note : MonoBehaviour {
-    public GameObject sprite;
     public NoteType noteType = NoteType.QUARTER;
     // TODO: Calculate displacement based off NoteType
     public float displacement = 1.0f; // how far apart the next note is
@@ -76,10 +75,10 @@ public class Note : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (falling && sprite.activeInHierarchy) {
-            sprite.transform.Rotate(8f * Vector3.back * Time.deltaTime);
-            if (!sprite.GetComponent<SpriteRenderer>().isVisible) {
-                sprite.SetActive(false);
+        if (falling && gameObject.activeInHierarchy) {
+            transform.Rotate(8f * Vector3.back * Time.deltaTime);
+            if (!GetComponent<SpriteRenderer>().isVisible) {
+                gameObject.SetActive(false);
             }
         }
     }
@@ -87,21 +86,21 @@ public class Note : MonoBehaviour {
     // TODO: Show a flashy animation on the beat
     // For now, we just bounce it up a few pixels
     public void AnimateBeat(bool on) {
-        Vector3 pos = sprite.transform.position;
+        Vector3 pos = transform.position;
         pos.y += on ? 0.1f : -0.1f;
-        sprite.transform.position = pos;
+        transform.position = pos;
     }
 
     // Show a flashy animation when the note is hit
     public void AnimateHit(Score score) {
         if (score.value > 0) {
             // TODO: do something more exciting
-            sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            score.ShowText(sprite.transform.position, Color.black);
+            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            score.ShowText(transform.position, Color.black);
         } else {
             // TODO: replace with falling animation
-            score.ShowText(sprite.transform.position, Color.red);
-            sprite.AddComponent<Rigidbody2D>(); // add gravity
+            score.ShowText(transform.position, Color.red);
+            gameObject.AddComponent<Rigidbody2D>(); // add gravity
             falling = true;
         }
         played = true;
@@ -110,11 +109,11 @@ public class Note : MonoBehaviour {
     // Show a flashy animation when the note is released
     public void AnimateRelease(Score score) {
         if (score.value > 0) {
-            sprite.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
-            score.ShowText(sprite.transform.position, Color.blue);
+            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
+            score.ShowText(transform.position, Color.blue);
         } else {
             // TODO: show animation for miss
-            score.ShowText(sprite.transform.position, Color.red);
+            score.ShowText(transform.position, Color.red);
         }
     }
 }
