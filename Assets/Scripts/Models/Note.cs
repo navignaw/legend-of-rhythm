@@ -69,8 +69,14 @@ public class Note : MonoBehaviour {
     int row = 0; // which row on the staff the note lines up with
     bool falling = false;
 
+    // Animation data
+    Animator anim;
+    int bounceHash = Animator.StringToHash("Bounce");
+
+
     // Use this for initialization
     void Start () {
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -96,6 +102,7 @@ public class Note : MonoBehaviour {
         if (score.value > 0) {
             // TODO: do something more exciting
             GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+            anim.SetTrigger(bounceHash);
             score.ShowText(transform.position, Color.black);
         } else {
             // TODO: replace with falling animation

@@ -291,6 +291,7 @@ MonoBehaviour:
   startingPos: {x: 0, y: 0, z: 0}
   barDisplacement: 1
   totalScore: 0
+  noteTypes: 
   notes: []
   bars: []
   PrefabEighthNote: {fileID: 185462, guid: 9fc879aa52d80574f8af1dfe1e57ee9d, type: 2}
