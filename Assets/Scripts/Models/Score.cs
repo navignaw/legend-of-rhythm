@@ -15,7 +15,7 @@ public class Score {
     public const float MISS_THRESHOLD = 0.5f;
 
     // Delay threshold for releasing a note
-    const float OK_THRESHOLD = 0.5f;
+    const float OK_THRESHOLD = 0.6f;
 
     // Score for hitting notes
     const int PERFECT_SCORE = 5;

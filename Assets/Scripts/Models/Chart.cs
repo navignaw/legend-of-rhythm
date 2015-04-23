@@ -33,7 +33,7 @@ public class Chart : MonoBehaviour {
     // TODO(Roger): parse string or text file to get NoteTypes
     void AddTestNotes() {
         noteTypes = new List<NoteType>();
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 18; i++) {
             noteTypes.Add(NoteType.QUARTER);
             noteTypes.Add(NoteType.QUARTER);
             noteTypes.Add(NoteType.QUARTER);

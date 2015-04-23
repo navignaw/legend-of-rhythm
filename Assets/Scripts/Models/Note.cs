@@ -100,7 +100,6 @@ public class Note : MonoBehaviour {
     // Show a flashy animation when the note is hit
     public void AnimateHit(Score score) {
         if (score.value > 0) {
-            // TODO: do something more exciting
             GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
             anim.SetTrigger(bounceHash);
             score.ShowText(transform.position, Color.black);
