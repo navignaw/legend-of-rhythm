@@ -101,7 +101,7 @@ public class Score {
         textObject.name = text;
         GUIText guiText = textObject.AddComponent<GUIText>();
         guiText.text = text;
-        guiText.fontSize = 20;
+        guiText.fontSize = 25;
         guiText.color = color;
         ScoreText scoreText = textObject.AddComponent<ScoreText>();
         scoreText.target = pos;
