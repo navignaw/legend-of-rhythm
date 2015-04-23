@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 437716}
   - 212: {fileID: 21206548}
+  - 95: {fileID: 9557562}
   m_Layer: 0
   m_Name: WholeNote
   m_TagString: Untagged
@@ -28,6 +29,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!95 &9557562
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128156}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1af76a3ea0216434686ca880c43e37de, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &21206548
 SpriteRenderer:
   m_ObjectHideFlags: 1
