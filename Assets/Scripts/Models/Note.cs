@@ -14,8 +14,8 @@ public enum NoteType {
 
 public class Note : MonoBehaviour {
     public NoteType noteType = NoteType.QUARTER;
-    // TODO: Calculate displacement based off NoteType
     public float displacement = 1.0f; // how far apart the next note is
+    public bool isRest = false;
 
     // How long user needs to hold the note. Normalized so whole note = 1.
     // Duration of 0 indicates single press (quarter, eighth notes, etc.)
@@ -99,15 +99,24 @@ public class Note : MonoBehaviour {
 
     // Show a flashy animation when the note is hit
     public void AnimateHit(Score score) {
-        if (score.value > 0) {
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-            anim.SetTrigger(bounceHash);
-            score.ShowText(transform.position, Color.black);
+        if (isRest) {
+            if (score.value > 0) {
+                // TODO: what to do on rest?
+            } else {
+                // didn't hit rest, good
+            }
         } else {
-            // TODO: replace with falling animation
-            score.ShowText(transform.position, Color.red);
-            gameObject.AddComponent<Rigidbody2D>(); // add gravity
-            falling = true;
+            // not a rest
+            if (score.value > 0) {
+                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+                anim.SetTrigger(bounceHash);
+                score.ShowText(transform.position, Color.black);
+            } else {
+                // TODO: replace with falling animation
+                score.ShowText(transform.position, Color.red);
+                gameObject.AddComponent<Rigidbody2D>(); // add gravity
+                falling = true;
+            }
         }
         played = true;
     }

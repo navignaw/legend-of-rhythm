@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
 [RequireComponent(typeof(Song))]
 public class Chart : MonoBehaviour {
     public Vector3 startingPos;
@@ -15,14 +16,7 @@ public class Chart : MonoBehaviour {
     public List<GameObject> bars; // list of bars
     Song song;
 
-    public GameObject PrefabEighthNote;
-    public GameObject PrefabQuarterNote;
-    public GameObject PrefabHalfNote;
-    public GameObject PrefabWholeNote;
-    public GameObject PrefabDottedEighthNote;
-    public GameObject PrefabDottedQuarterNote;
-    public GameObject PrefabDottedHalfNote;
-    public GameObject PrefabDottedWholeNote;
+    public List<GameObject> Prefabs; // list of note prefabs indexed by NoteType
     public GameObject PrefabBarLine;
 
     // For keeping track of current note:
@@ -83,7 +77,7 @@ public class Chart : MonoBehaviour {
             // Instantiate sprite
             // TODO: adjust y position based on row on staff
             pos.x = currentPos;
-            GameObject birb = Instantiate(GetNotePrefab(noteType), pos, Quaternion.identity) as GameObject;
+            GameObject birb = Instantiate(Prefabs[(int) noteType], pos, Quaternion.identity) as GameObject;
             birb.transform.parent = gameObject.transform;
             Note note = birb.GetComponent<Note>();
             notes.Add(note);
@@ -109,31 +103,6 @@ public class Chart : MonoBehaviour {
         bar = Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject;
         bar.transform.parent = gameObject.transform;
         bars.Add(bar);
-    }
-
-    // Return appropriate prefab based on note type
-    GameObject GetNotePrefab(NoteType type) {
-        switch (type) {
-            case NoteType.EIGHTH:
-                return PrefabEighthNote;
-            case NoteType.QUARTER:
-                return PrefabQuarterNote;
-            case NoteType.HALF:
-                return PrefabHalfNote;
-            case NoteType.WHOLE:
-                return PrefabWholeNote;
-            case NoteType.DOTTED_EIGHTH:
-                return PrefabDottedEighthNote;
-            case NoteType.DOTTED_QUARTER:
-                return PrefabDottedQuarterNote;
-            case NoteType.DOTTED_HALF:
-                return PrefabDottedHalfNote;
-            case NoteType.DOTTED_WHOLE:
-                return PrefabDottedWholeNote;
-        }
-
-        Debug.Log("invalid note type!");
-        return null;
     }
 
     // Return currently playing note in song

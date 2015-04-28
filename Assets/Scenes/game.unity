@@ -189,7 +189,7 @@ MonoBehaviour:
   songPos: 0
   currentBeat: 0
   currentMeasure: 0
-  offset: .0500000007
+  offset: .150000006
   timeSignature:
     beats: 4
     unit: 1
@@ -294,17 +294,15 @@ MonoBehaviour:
   noteTypes: 
   notes: []
   bars: []
-  PrefabEighthNote: {fileID: 185462, guid: 9fc879aa52d80574f8af1dfe1e57ee9d, type: 2}
-  PrefabQuarterNote: {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
-  PrefabHalfNote: {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3, type: 2}
-  PrefabWholeNote: {fileID: 128156, guid: 4352a1fa19b71274fb57ba9fe9fb44ce, type: 2}
-  PrefabDottedEighthNote: {fileID: 185462, guid: 9fc879aa52d80574f8af1dfe1e57ee9d,
-    type: 2}
-  PrefabDottedQuarterNote: {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde,
-    type: 2}
-  PrefabDottedHalfNote: {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3, type: 2}
-  PrefabDottedWholeNote: {fileID: 128156, guid: 4352a1fa19b71274fb57ba9fe9fb44ce,
-    type: 2}
+  Prefabs:
+  - {fileID: 185462, guid: 9fc879aa52d80574f8af1dfe1e57ee9d, type: 2}
+  - {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
+  - {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3, type: 2}
+  - {fileID: 128156, guid: 4352a1fa19b71274fb57ba9fe9fb44ce, type: 2}
+  - {fileID: 185462, guid: 9fc879aa52d80574f8af1dfe1e57ee9d, type: 2}
+  - {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
+  - {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3, type: 2}
+  - {fileID: 128156, guid: 4352a1fa19b71274fb57ba9fe9fb44ce, type: 2}
   PrefabBarLine: {fileID: 146024, guid: effbc235ed118194a80d366c6c0cdd44, type: 2}
 --- !u!1 &987860865
 GameObject:
