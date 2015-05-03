@@ -10,7 +10,7 @@ public class ScoreReader : MonoBehaviour {
     StreamReader reader;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         reader = new StreamReader("Assets/Scores/" + score, Encoding.Default);
     }
 
