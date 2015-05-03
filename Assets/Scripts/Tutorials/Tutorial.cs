@@ -34,12 +34,12 @@ public abstract class Tutorial : MonoBehaviour {
         CurrentTutorial = null;
         string levelToLoad;
         switch (level) {
-            case 1:
+            /*case 1:
                 levelToLoad = "story2";
                 break;
             case 2:
                 levelToLoad = "story3";
-                break;
+                break;*/
             default:
                 levelToLoad = "title";
                 break;
@@ -49,8 +49,9 @@ public abstract class Tutorial : MonoBehaviour {
 
     // Create text message
     protected GameObject CreateMessage(Vector3 pos, string text, float duration) {
-        GameObject message = Instantiate(messagePrefab, pos, Quaternion.identity) as GameObject;
-        message.transform.SetParent(transform);
+        GameObject message = Instantiate(messagePrefab) as GameObject;
+        message.transform.SetParent(transform, false);
+        message.transform.localPosition = pos;
         message.GetComponent<UIMessage>().messageText = text;
         message.GetComponent<UIMessage>().duration = duration;
         message.GetComponent<UIMessage>().proceedTutorialOnClose = (duration >= 0);

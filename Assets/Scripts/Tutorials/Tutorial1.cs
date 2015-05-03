@@ -6,10 +6,10 @@ public class Tutorial1 : Tutorial {
 
     // Continue in tutorial
     protected override void ProceedTutorial() {
-        Vector3 pos = new Vector3(0f, 0f, 0f); // position of text message
+        Vector3 pos = new Vector3(0f, -1f, 0f); // position of text message
         switch (phase++) {
             case 0:
-                CreateMessage(Vector3.zero, "HELLO FROM THE COW");
+                CreateMessage(Vector3.zero, "This is a really long message from your cow buddy to test the bounds on the text message.");
                 break;
 
 
