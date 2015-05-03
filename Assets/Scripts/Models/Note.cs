@@ -114,6 +114,7 @@ public class Note : MonoBehaviour {
             if (score.value > 0) {
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
                 anim.SetTrigger(bounceHash);
+                anim.speed = Song.currentSong.beatTime;
                 score.ShowText(transform.position, Color.black);
             } else {
                 // TODO: replace with falling animation

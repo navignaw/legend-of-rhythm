@@ -164,6 +164,7 @@ GameObject:
   - 82: {fileID: 813554732}
   - 114: {fileID: 813554731}
   - 114: {fileID: 813554734}
+  - 114: {fileID: 813554735}
   m_Layer: 0
   m_Name: Song1
   m_TagString: Untagged
@@ -312,6 +313,19 @@ MonoBehaviour:
   - {fileID: 139002, guid: 5047c0ee553df60418263529d1dc545d, type: 2}
   - {fileID: 128156, guid: bb4a2bd7bdad9c346b7bfe2da7b41de8, type: 2}
   PrefabBarLine: {fileID: 146024, guid: effbc235ed118194a80d366c6c0cdd44, type: 2}
+  reader: {fileID: 813554735}
+--- !u!114 &813554735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 813554730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a61ca477914e464fbaafd51fcb6012d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: test.txt
 --- !u!1 &987860865
 GameObject:
   m_ObjectHideFlags: 0

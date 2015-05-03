@@ -11,102 +11,24 @@ public class Chart : MonoBehaviour {
 
     const float NEXT_NOTE_THRESHOLD = 0.15f; // threshold before we register a hit as the next note
 
-    public List<NoteType> noteTypes; // list of note types
     public List<Note> notes; // list of note objects (attached to birb prefab)
     public List<GameObject> bars; // list of bars
     Song song;
 
     public List<GameObject> Prefabs; // list of note prefabs indexed by NoteType
     public GameObject PrefabBarLine;
+    public ScoreReader reader;
 
     // For keeping track of current note:
     Note currentNote; // currently held note
     float elapsedBeat = 0.0f; // how much of current note has elapsed
     int lastNoteIndex = 0;
 
-    void AddTestNotes() {
-        noteTypes = new List<NoteType>();
-        for (int i = 0; i < 18; i++) {
-            noteTypes.Add(NoteType.QUARTER);
-            noteTypes.Add(NoteType.QUARTER);
-            noteTypes.Add(NoteType.QUARTER);
-            noteTypes.Add(NoteType.QUARTER);
-            noteTypes.Add(NoteType.QUARTER);
-            noteTypes.Add(NoteType.QUARTER);
-            noteTypes.Add(NoteType.HALF);
-            noteTypes.Add(NoteType.QUARTER);
-            noteTypes.Add(NoteType.QUARTER);
-            noteTypes.Add(NoteType.HALF);
-            noteTypes.Add(NoteType.WHOLE);
-        }
-    }
-
-    void generateScore(string filename)
-    {
-        string score = System.IO.File.ReadAllText(filename);
-        score = string.Concat(score, "\n");
-
-        while(score.Contains("\n"))
-        {
-            string currentNote = score.Substring(0, score.IndexOf('\n'));
-            string isRest = score.Substring(0, score.IndexOf(':'));
-
-            currentNote = currentNote.Substring(score.IndexOf(':') + 2);
-            string noteType = currentNote;
-
-            score = score.Substring(score.IndexOf('\n') + 1);
-
-            if (isRest == "Rest")
-            {
-                if (noteType == "eighth")
-                    noteTypes.Add(NoteType.EIGHTH);
-                else if (noteType == "quarter")
-                    noteTypes.Add(NoteType.QUARTER);
-                else if (noteType == "half")
-                    noteTypes.Add(NoteType.HALF);
-                else if (noteType == "whole")
-                    noteTypes.Add(NoteType.WHOLE);
-                else if (noteType == "dotted_eighth")
-                    noteTypes.Add(NoteType.DOTTED_EIGHTH);
-                else if (noteType == "dotted_quarter")
-                    noteTypes.Add(NoteType.DOTTED_QUARTER);
-                else if (noteType == "dotted_half")
-                    noteTypes.Add(NoteType.DOTTED_HALF);
-                else if (noteType == "dotted_whole")
-                    noteTypes.Add(NoteType.DOTTED_WHOLE);
-            }
-            else
-            {
-                if (noteType == "eighth")
-                    noteTypes.Add(NoteType.EIGHTH);
-                else if (noteType == "quarter")
-                    noteTypes.Add(NoteType.QUARTER);
-                else if (noteType == "half")
-                    noteTypes.Add(NoteType.HALF);
-                else if (noteType == "whole")
-                    noteTypes.Add(NoteType.WHOLE);
-                else if (noteType == "dotted_eighth")
-                    noteTypes.Add(NoteType.DOTTED_EIGHTH);
-                else if (noteType == "dotted_quarter")
-                    noteTypes.Add(NoteType.DOTTED_QUARTER);
-                else if (noteType == "dotted_half")
-                    noteTypes.Add(NoteType.DOTTED_HALF);
-                else if (noteType == "dotted_whole")
-                    noteTypes.Add(NoteType.DOTTED_WHOLE);
-            }
-
-            Debug.Log(isRest + "\n");
-            Debug.Log(noteType + "\n");
-        }
-    }
-
     // Use this for initialization
     void Start () {
         song = GetComponent<Song>();
-        AddTestNotes();
         DrawNotes();
         song.PlaySong();
-        generateScore("Assets/Scores/test.txt");
     }
 
     // Update is called once per frame
@@ -114,11 +36,7 @@ public class Chart : MonoBehaviour {
     }
 
 
-    // Instantiate prefabs for each note in note array
-    /** TODO(Roger): parse string or text file to get NoteTypes
-     *  replace noteTypes (and AddTestNotes) with notes read from a file
-     *  might want to make a utility script that just reads and returns notetypes and rests?
-     */
+    // Instantiate prefabs for each note, parsed from text file
     void DrawNotes()
     {
         float beatCounter = 0.0f;
@@ -133,13 +51,11 @@ public class Chart : MonoBehaviour {
         bars.Add(SpawnChild(PrefabBarLine, pos));
         currentPos += barDisplacement;
 
-        foreach (NoteType noteType in noteTypes)
-        {
+        foreach (GameObject prefab in ReadNotesFromFile()) {
             // Instantiate sprite
             // TODO: adjust y position based on row on staff
             pos.x = currentPos;
-            // TODO: assign rests based off of random probability. un-hardcode this
-            GameObject birb = SpawnChild(GetNotePrefab(noteType, Random.value >= 0.8), pos);
+            GameObject birb = SpawnChild(prefab, pos);
             Note note = birb.GetComponent<Note>();
             notes.Add(note);
 
@@ -242,6 +158,46 @@ public class Chart : MonoBehaviour {
         GameObject go = Instantiate(prefab, pos, Quaternion.identity) as GameObject;
         go.transform.parent = transform;
         return go;
+    }
+
+    // Iterator that returns note prefab based off text file
+    IEnumerable<GameObject> ReadNotesFromFile()
+    {
+        foreach (string line in reader.ReadLine()) {
+            // TODO: change formatting of strings from Note/Rest: type
+            string isRest = line.Substring(0, line.IndexOf(':'));
+            string noteTypeStr = line.Substring(line.IndexOf(':') + 2);
+            NoteType noteType = NoteType.QUARTER;
+
+            switch (noteTypeStr) {
+                case "eighth":
+                    noteType = NoteType.EIGHTH;
+                    break;
+                case "quarter":
+                    noteType = NoteType.QUARTER;
+                    break;
+                case "half":
+                    noteType = NoteType.HALF;
+                    break;
+                case "whole":
+                    noteType = NoteType.WHOLE;
+                    break;
+                case "dotted_eighth":
+                    noteType = NoteType.DOTTED_EIGHTH;
+                    break;
+                case "dotted_quarter":
+                    noteType = NoteType.DOTTED_QUARTER;
+                    break;
+                case "dotted_half":
+                    noteType = NoteType.DOTTED_HALF;
+                    break;
+                case "dotted_whole":
+                    noteType = NoteType.DOTTED_WHOLE;
+                    break;
+            }
+
+            yield return GetNotePrefab(noteType, isRest == "Rest");
+        }
     }
 
     // TODO: refactor to own UI script?
