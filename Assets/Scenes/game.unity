@@ -303,6 +303,14 @@ MonoBehaviour:
   - {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
   - {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3, type: 2}
   - {fileID: 128156, guid: 4352a1fa19b71274fb57ba9fe9fb44ce, type: 2}
+  - {fileID: 185462, guid: b411b9455dfe7694f87914a807cf5842, type: 2}
+  - {fileID: 168360, guid: 9e05ee561d7e3bb47a7baa030ce7570a, type: 2}
+  - {fileID: 139002, guid: 5047c0ee553df60418263529d1dc545d, type: 2}
+  - {fileID: 128156, guid: bb4a2bd7bdad9c346b7bfe2da7b41de8, type: 2}
+  - {fileID: 185462, guid: b411b9455dfe7694f87914a807cf5842, type: 2}
+  - {fileID: 168360, guid: 9e05ee561d7e3bb47a7baa030ce7570a, type: 2}
+  - {fileID: 139002, guid: 5047c0ee553df60418263529d1dc545d, type: 2}
+  - {fileID: 128156, guid: bb4a2bd7bdad9c346b7bfe2da7b41de8, type: 2}
   PrefabBarLine: {fileID: 146024, guid: effbc235ed118194a80d366c6c0cdd44, type: 2}
 --- !u!1 &987860865
 GameObject:

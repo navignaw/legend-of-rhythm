@@ -95,6 +95,10 @@ public class Note : MonoBehaviour {
         Vector3 pos = transform.position;
         pos.y += on ? 0.1f : -0.1f;
         transform.position = pos;
+
+        if (isRest) {
+            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+        }
     }
 
     // Show a flashy animation when the note is hit

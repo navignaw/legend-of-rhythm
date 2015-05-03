@@ -24,7 +24,6 @@ public class Chart : MonoBehaviour {
     float elapsedBeat = 0.0f; // how much of current note has elapsed
     int lastNoteIndex = 0;
 
-    // TODO(Roger): parse string or text file to get NoteTypes
     void AddTestNotes() {
         noteTypes = new List<NoteType>();
         for (int i = 0; i < 18; i++) {
@@ -56,6 +55,10 @@ public class Chart : MonoBehaviour {
 
 
     // Instantiate prefabs for each note in note array
+    /** TODO(Roger): parse string or text file to get NoteTypes
+     *  replace noteTypes (and AddTestNotes) with notes read from a file
+     *  might want to make a utility script that just reads and returns notetypes and rests?
+     */
     void DrawNotes()
     {
         float beatCounter = 0.0f;
@@ -67,9 +70,7 @@ public class Chart : MonoBehaviour {
 
         // TODO: draw time signature, etc.
         Vector3 pos = new Vector3(currentPos, 0, 0);
-        GameObject bar = Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject;
-        bar.transform.parent = gameObject.transform;
-        bars.Add(bar);
+        bars.Add(SpawnChild(PrefabBarLine, pos));
         currentPos += barDisplacement;
 
         foreach (NoteType noteType in noteTypes)
@@ -77,8 +78,8 @@ public class Chart : MonoBehaviour {
             // Instantiate sprite
             // TODO: adjust y position based on row on staff
             pos.x = currentPos;
-            GameObject birb = Instantiate(Prefabs[(int) noteType], pos, Quaternion.identity) as GameObject;
-            birb.transform.parent = gameObject.transform;
+            // TODO: assign rests based off of random probability. un-hardcode this
+            GameObject birb = SpawnChild(GetNotePrefab(noteType, Random.value >= 0.8), pos);
             Note note = birb.GetComponent<Note>();
             notes.Add(note);
 
@@ -90,9 +91,7 @@ public class Chart : MonoBehaviour {
 
             if (beatCounter >= song.timeSignature.beats) {
                 // Add bar line
-                bar = Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject;
-                bar.transform.parent = gameObject.transform;
-                bars.Add(bar);
+                bars.Add(SpawnChild(PrefabBarLine, pos));
                 currentPos += barDisplacement;
                 beatCounter %= song.timeSignature.beats;
             }
@@ -100,9 +99,7 @@ public class Chart : MonoBehaviour {
 
         // TODO: Add double bar
         pos.x += 0.2f;
-        bar = Instantiate(PrefabBarLine, pos, Quaternion.identity) as GameObject;
-        bar.transform.parent = gameObject.transform;
-        bars.Add(bar);
+        bars.Add(SpawnChild(PrefabBarLine, pos));
     }
 
     // Return currently playing note in song
@@ -173,6 +170,18 @@ public class Chart : MonoBehaviour {
             currentNote.AnimateRelease(score);
         }
         currentNote = null;
+    }
+
+    // Currently, prefabs are ordered by noteType (see enum).
+    // First eight are notes, next eight are rests.
+    GameObject GetNotePrefab(NoteType noteType, bool isRest) {
+        return Prefabs[(int)noteType + (isRest ? 8 : 0)];
+    }
+
+    GameObject SpawnChild(GameObject prefab, Vector3 pos) {
+        GameObject go = Instantiate(prefab, pos, Quaternion.identity) as GameObject;
+        go.transform.parent = transform;
+        return go;
     }
 
     // TODO: refactor to own UI script?
