@@ -1,0 +1,3 @@
+Rest: eighth
+Note: quarter
+Rest: half

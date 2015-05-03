@@ -41,12 +41,72 @@ public class Chart : MonoBehaviour {
         }
     }
 
+    void generateScore(string filename)
+    {
+        string score = System.IO.File.ReadAllText(filename);
+        score = string.Concat(score, "\n");
+
+        while(score.Contains("\n"))
+        {
+            string currentNote = score.Substring(0, score.IndexOf('\n'));
+            string isRest = score.Substring(0, score.IndexOf(':'));
+
+            currentNote = currentNote.Substring(score.IndexOf(':') + 2);
+            string noteType = currentNote;
+
+            score = score.Substring(score.IndexOf('\n') + 1);
+
+            if (isRest == "Rest")
+            {
+                if (noteType == "eighth")
+                    noteTypes.Add(NoteType.EIGHTH);
+                else if (noteType == "quarter")
+                    noteTypes.Add(NoteType.QUARTER);
+                else if (noteType == "half")
+                    noteTypes.Add(NoteType.HALF);
+                else if (noteType == "whole")
+                    noteTypes.Add(NoteType.WHOLE);
+                else if (noteType == "dotted_eighth")
+                    noteTypes.Add(NoteType.DOTTED_EIGHTH);
+                else if (noteType == "dotted_quarter")
+                    noteTypes.Add(NoteType.DOTTED_QUARTER);
+                else if (noteType == "dotted_half")
+                    noteTypes.Add(NoteType.DOTTED_HALF);
+                else if (noteType == "dotted_whole")
+                    noteTypes.Add(NoteType.DOTTED_WHOLE);
+            }
+            else
+            {
+                if (noteType == "eighth")
+                    noteTypes.Add(NoteType.EIGHTH);
+                else if (noteType == "quarter")
+                    noteTypes.Add(NoteType.QUARTER);
+                else if (noteType == "half")
+                    noteTypes.Add(NoteType.HALF);
+                else if (noteType == "whole")
+                    noteTypes.Add(NoteType.WHOLE);
+                else if (noteType == "dotted_eighth")
+                    noteTypes.Add(NoteType.DOTTED_EIGHTH);
+                else if (noteType == "dotted_quarter")
+                    noteTypes.Add(NoteType.DOTTED_QUARTER);
+                else if (noteType == "dotted_half")
+                    noteTypes.Add(NoteType.DOTTED_HALF);
+                else if (noteType == "dotted_whole")
+                    noteTypes.Add(NoteType.DOTTED_WHOLE);
+            }
+
+            Debug.Log(isRest + "\n");
+            Debug.Log(noteType + "\n");
+        }
+    }
+
     // Use this for initialization
     void Start () {
         song = GetComponent<Song>();
         AddTestNotes();
         DrawNotes();
         song.PlaySong();
+        generateScore("Assets/Scores/test.txt");
     }
 
     // Update is called once per frame
