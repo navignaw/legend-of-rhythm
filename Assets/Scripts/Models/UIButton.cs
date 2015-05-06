@@ -4,9 +4,9 @@ using System.Collections;
 public enum ButtonAction
 {
     PLAY,
-    TUTORIAL1,
-    TUTORIAL2,
-    TUTORIAL3,
+    STORY1,
+    STORY2,
+    STORY3,
     MENU,
     QUIT
 }
@@ -30,14 +30,14 @@ public class UIButton : MonoBehaviour
                     Application.LoadLevel("tutorial" + (lvl + 1));
                 }
                 break;
-            case ButtonAction.TUTORIAL1:
-                Application.LoadLevel("tutorial1");	// thread cutting tutorial
+            case ButtonAction.STORY1:
+                Application.LoadLevel("story1");	// thread cutting tutorial
                 break;
-            case ButtonAction.TUTORIAL2:
-                Application.LoadLevel("tutorial2");	// boat tutorial
+            case ButtonAction.STORY2:
+                Application.LoadLevel("story2");	// boat tutorial
                 break;
-            case ButtonAction.TUTORIAL3:
-                Application.LoadLevel("tutorial3");	// menu tutorial
+            case ButtonAction.STORY3:
+                Application.LoadLevel("story3");	// menu tutorial
                 break;
             case ButtonAction.MENU:
                 Application.LoadLevel("title");	// load menu

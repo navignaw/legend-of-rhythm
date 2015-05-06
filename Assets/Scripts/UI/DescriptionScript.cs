@@ -4,15 +4,12 @@ using System.Collections;
 public class DescriptionScript : MonoBehaviour {
 
     public string sceneName;
+    public GameObject descriptionfield;
     public string description;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	public void setDescription() {
+        Debug.Log("wassup");
+        descriptionfield.GetComponent<UIMessage>().messageText = description;
 	}
 }
