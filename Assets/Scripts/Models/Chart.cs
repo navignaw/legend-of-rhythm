@@ -28,7 +28,7 @@ public class Chart : MonoBehaviour {
     void Start () {
         song = GetComponent<Song>();
         DrawNotes();
-        //song.PlaySong();
+        song.PlaySong();
     }
 
     // Update is called once per frame
