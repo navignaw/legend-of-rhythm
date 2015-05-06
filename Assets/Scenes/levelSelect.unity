@@ -714,12 +714,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
---- !u!224 &1701496797 stripped
+--- !u!224 &1701496797
 RectTransform:
   m_PrefabParentObject: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45,
     type: 2}
   m_PrefabInternal: {fileID: 50841471}
---- !u!114 &1701496801 stripped
+--- !u!114 &1701496801
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11494392, guid: e32b6bf16dce0c340b6e5d26bfb8fd45,
     type: 2}

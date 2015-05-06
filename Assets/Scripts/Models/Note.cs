@@ -71,7 +71,9 @@ public class Note : MonoBehaviour {
 
     // Animation data
     Animator anim;
-    int bounceHash = Animator.StringToHash("Bounce");
+    int hitHash = Animator.StringToHash("hit");
+    int releaseHash = Animator.StringToHash("release");
+    int dieHash = Animator.StringToHash("die");
 
 
     // Use this for initialization
@@ -113,11 +115,13 @@ public class Note : MonoBehaviour {
             // not a rest
             if (score.value > 0) {
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
-                anim.SetTrigger(bounceHash);
+                anim.SetTrigger(hitHash);
                 anim.speed = Song.currentSong.beatTime;
                 score.ShowText(transform.position, Color.black);
             } else {
                 // TODO: replace with falling animation
+                anim.SetTrigger(dieHash);
+                anim.speed = Song.currentSong.beatTime;
                 score.ShowText(transform.position, Color.red);
                 gameObject.AddComponent<Rigidbody2D>(); // add gravity
                 falling = true;
@@ -128,11 +132,14 @@ public class Note : MonoBehaviour {
 
     // Show a flashy animation when the note is released
     public void AnimateRelease(Score score) {
+        Debug.Log("working");
         if (score.value > 0) {
+            anim.SetTrigger(releaseHash);
             GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
             score.ShowText(transform.position, Color.blue);
         } else {
             // TODO: show animation for miss
+            anim.SetTrigger(dieHash);
             score.ShowText(transform.position, Color.red);
         }
     }
