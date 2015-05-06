@@ -1,0 +1,190 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &150300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 450764}
+  - 82: {fileID: 8271030}
+  - 114: {fileID: 11431824}
+  - 114: {fileID: 11452444}
+  - 114: {fileID: 11457500}
+  m_Layer: 0
+  m_Name: SongChart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450764
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150300}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!82 &8271030
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150300}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24318984, guid: 76030b870f8183a4eb9947cb67349cf6,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: b35b3067a6d2c8b449911139f24b952d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &11431824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a394f782ee10649a817017a620f7f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  songName: Cowbells
+  artist: Cowposer
+  bpm: 120
+  beatTime: 0
+  songPos: 0
+  currentBeat: 0
+  currentMeasure: 0
+  offset: .0500000007
+  timeSignature:
+    beats: 4
+    unit: 1
+  chart: {fileID: 0}
+  currentNote: {fileID: 0}
+--- !u!114 &11452444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7142c29f69c93c4090a68c73b9240ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingPos: {x: 0, y: 0, z: 0}
+  barDisplacement: 1
+  totalScore: 0
+  notes: []
+  bars: []
+  Prefabs:
+  - {fileID: 185462, guid: 9fc879aa52d80574f8af1dfe1e57ee9d, type: 2}
+  - {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
+  - {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3, type: 2}
+  - {fileID: 128156, guid: 4352a1fa19b71274fb57ba9fe9fb44ce, type: 2}
+  - {fileID: 185462, guid: 9fc879aa52d80574f8af1dfe1e57ee9d, type: 2}
+  - {fileID: 168360, guid: e337c7cdcd034d942bc6206418d5ccde, type: 2}
+  - {fileID: 139002, guid: c087090473f042c43a17c771936a1ff3, type: 2}
+  - {fileID: 128156, guid: 4352a1fa19b71274fb57ba9fe9fb44ce, type: 2}
+  - {fileID: 185462, guid: b411b9455dfe7694f87914a807cf5842, type: 2}
+  - {fileID: 168360, guid: 9e05ee561d7e3bb47a7baa030ce7570a, type: 2}
+  - {fileID: 139002, guid: 5047c0ee553df60418263529d1dc545d, type: 2}
+  - {fileID: 128156, guid: bb4a2bd7bdad9c346b7bfe2da7b41de8, type: 2}
+  - {fileID: 185462, guid: b411b9455dfe7694f87914a807cf5842, type: 2}
+  - {fileID: 168360, guid: 9e05ee561d7e3bb47a7baa030ce7570a, type: 2}
+  - {fileID: 139002, guid: 5047c0ee553df60418263529d1dc545d, type: 2}
+  - {fileID: 128156, guid: bb4a2bd7bdad9c346b7bfe2da7b41de8, type: 2}
+  PrefabCounts:
+  - {fileID: 161058, guid: e23aadac5e77ea645bdc7a81f1315080, type: 2}
+  - {fileID: 169452, guid: 1c56a83605d32e343adadf994a83d3b1, type: 2}
+  - {fileID: 190932, guid: b95ef095b85773643bedc41d284237fb, type: 2}
+  - {fileID: 110328, guid: e3bf00debead7074f979f2f5c12e2f24, type: 2}
+  PrefabBarLine: {fileID: 146024, guid: effbc235ed118194a80d366c6c0cdd44, type: 2}
+  reader: {fileID: 11457500}
+--- !u!114 &11457500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a61ca477914e464fbaafd51fcb6012d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: cowbells.txt
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 150300}
+  m_IsPrefabParent: 1
