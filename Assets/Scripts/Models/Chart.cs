@@ -16,6 +16,7 @@ public class Chart : MonoBehaviour {
     Song song;
 
     public List<GameObject> Prefabs; // list of note prefabs indexed by NoteType
+    public List<GameObject> PrefabCounts; // list of note prefabs for 5,6,7,8
     public GameObject PrefabBarLine;
     public ScoreReader reader;
 
@@ -48,6 +49,19 @@ public class Chart : MonoBehaviour {
 
         // TODO: draw time signature, etc.
         Vector3 pos = new Vector3(currentPos, 0, 0);
+        bars.Add(SpawnChild(PrefabBarLine, pos));
+        currentPos += barDisplacement;
+
+        // Draw 5,6,7,8
+        foreach (GameObject prefab in PrefabCounts) {
+            pos.x = currentPos;
+            GameObject number = SpawnChild(prefab, pos);
+            Note note = number.GetComponent<Note>();
+            notes.Add(note);
+            currentPos += note.displacement;
+        }
+
+        pos.x = currentPos;
         bars.Add(SpawnChild(PrefabBarLine, pos));
         currentPos += barDisplacement;
 
