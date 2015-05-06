@@ -4,6 +4,10 @@ using System.Collections;
 public abstract class Tutorial : MonoBehaviour {
     public static Tutorial CurrentTutorial;
     public GameObject messagePrefab;
+    public Transform cow;
+    public Song song;
+    public Chart chart;
+    public Vector3 messageOffset = Vector3.zero;
     protected int phase = 0;
 
     public static void Proceed() {
@@ -48,18 +52,20 @@ public abstract class Tutorial : MonoBehaviour {
     }
 
     // Create text message
-    protected GameObject CreateMessage(Vector3 pos, string text, float duration) {
+    protected GameObject CreateMessage(Vector3 offset, string text, float duration) {
         GameObject message = Instantiate(messagePrefab) as GameObject;
         message.transform.SetParent(transform, false);
-        message.transform.localPosition = pos;
+        message.transform.localPosition = cow.localPosition + messageOffset;
         message.GetComponent<UIMessage>().messageText = text;
         message.GetComponent<UIMessage>().duration = duration;
         message.GetComponent<UIMessage>().proceedTutorialOnClose = (duration >= 0);
         return message;
     }
-
-    protected GameObject CreateMessage(Vector3 pos, string text) {
-        return CreateMessage(pos, text, 0);
+    protected GameObject CreateMessage(string text, float duration) {
+        return CreateMessage(Vector3.zero, text, duration);
+    }
+    protected GameObject CreateMessage(string text) {
+        return CreateMessage(Vector3.zero, text, 0);
     }
 
 }

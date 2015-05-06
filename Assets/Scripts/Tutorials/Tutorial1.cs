@@ -9,9 +9,16 @@ public class Tutorial1 : Tutorial {
         Vector3 pos = new Vector3(0f, -1f, 0f); // position of text message
         switch (phase++) {
             case 0:
-                CreateMessage(Vector3.zero, "This is a really long message from your cow buddy to test the bounds on the text message.");
+                CreateMessage("Hello from your friendly cow!");
                 break;
 
+            case 1:
+                CreateMessage("pls halp me collect the birbs");
+                break;
+
+            case 2:
+                song.PlaySong();
+                break;
 
             default:
                 CompleteTutorial(1);
