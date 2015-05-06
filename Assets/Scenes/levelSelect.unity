@@ -136,11 +136,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 60
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
       propertyPath: m_AnchorMin.x

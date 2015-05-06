@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HoverScript : MonoBehaviour {
+public class FlyingCow : MonoBehaviour {
 
     private Vector3 target;
     // Use this for initialization
     void Start () {
-        target = new Vector3(0, 0, 0);
+        target = transform.position;
     }
 
     // Update is called once per frame
