@@ -87,6 +87,22 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &4503808 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+  m_PrefabInternal: {fileID: 1308174698}
+--- !u!114 &4503809 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11452444, guid: e2398acacea7d4a4d93e6d744a83b283,
+    type: 2}
+  m_PrefabInternal: {fileID: 1308174698}
+  m_Script: {fileID: 11500000, guid: a7142c29f69c93c4090a68c73b9240ff, type: 3}
+--- !u!114 &4503811 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283,
+    type: 2}
+  m_PrefabInternal: {fileID: 1308174698}
+  m_Script: {fileID: 11500000, guid: 65a394f782ee10649a817017a620f7f5, type: 3}
 --- !u!1001 &138050105
 Prefab:
   m_ObjectHideFlags: 0
@@ -181,6 +197,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &565750132 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283,
+    type: 2}
+  m_PrefabInternal: {fileID: 1781355736}
+  m_Script: {fileID: 11500000, guid: 65a394f782ee10649a817017a620f7f5, type: 3}
 --- !u!1 &703751290
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +229,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 987142569}
+  - {fileID: 4503808}
+  - {fileID: 1781355737}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!224 &812000277 stripped
@@ -273,6 +297,10 @@ Prefab:
       propertyPath: chart
       value: 
       objectReference: {fileID: 813554734}
+    - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_Name
+      value: SongChart 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
   m_IsPrefabParent: 0
@@ -321,6 +349,72 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3f7c3b377c752644b86760968862945, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1308174698
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 703751291}
+    m_Modifications:
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: offset
+      value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: chart
+      value: 
+      objectReference: {fileID: 4503809}
+    - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_Name
+      value: SongChart 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271030, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1cd993cde90bc144cb971accd8c3d823, type: 3}
+    - target: {fileID: 11457500, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: score
+      value: cowbells2.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1359239345
 GameObject:
@@ -501,10 +595,90 @@ MonoBehaviour:
   cow: {fileID: 812000277}
   songs:
   - {fileID: 813554731}
+  - {fileID: 4503811}
+  - {fileID: 565750132}
   charts:
   - {fileID: 813554734}
+  - {fileID: 4503809}
+  - {fileID: 1781355738}
   messageOffset: {x: 80, y: 40, z: 0}
   cameraController: {fileID: 1868005783}
+--- !u!1001 &1781355736
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 703751291}
+    m_Modifications:
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: offset
+      value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: chart
+      value: 
+      objectReference: {fileID: 1781355738}
+    - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_Name
+      value: SongChart 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271030, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 65409a92e3c9baf4e9fd02a768775ecb, type: 3}
+    - target: {fileID: 11457500, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: score
+      value: cowbells3.txt
+      objectReference: {fileID: 0}
+    - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1781355737 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+  m_PrefabInternal: {fileID: 1781355736}
+--- !u!114 &1781355738 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11452444, guid: e2398acacea7d4a4d93e6d744a83b283,
+    type: 2}
+  m_PrefabInternal: {fileID: 1781355736}
+  m_Script: {fileID: 11500000, guid: a7142c29f69c93c4090a68c73b9240ff, type: 3}
 --- !u!1 &1868005777
 GameObject:
   m_ObjectHideFlags: 0

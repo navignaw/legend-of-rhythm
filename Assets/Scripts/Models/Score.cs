@@ -24,7 +24,7 @@ public class Score {
     public const int MISS_SCORE = 0;
 
     // Score for releasing a note on time
-    const int OK_SCORE = 3;
+    public const int OK_SCORE = 3;
 
     private static Score perfect = new Score("PERFECT", PERFECT_SCORE);
     private static Score wonderful = new Score("WONDERFUL", WONDERFUL_SCORE);

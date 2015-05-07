@@ -87,6 +87,8 @@ MonoBehaviour:
   image: {fileID: 11495196}
   sprites:
   - {fileID: 21300000, guid: 861d3c09deb59de4b83cbf67f71608bb, type: 3}
+  - {fileID: 21300000, guid: 54cb380ba23cc8b4ab047a2ec842a12b, type: 3}
+  - {fileID: 21300000, guid: 22d61c3bae133ff42aa8a22ab4a91183, type: 3}
   proceedTutorialOnClose: 0
   duration: 0
 --- !u!114 &11417654

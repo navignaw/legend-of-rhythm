@@ -7,7 +7,7 @@ public class UIMessage : MonoBehaviour {
     public GameObject continueText;
     public Image image;
     public Sprite[] sprites;
-    
+
     public string messageText
     {
         get { return message.text; }

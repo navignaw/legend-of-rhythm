@@ -68,6 +68,12 @@ public abstract class Tutorial : MonoBehaviour {
         if (imageSprite >= 0) {
             uiMessage.image.enabled = true;
             uiMessage.image.sprite = uiMessage.sprites[imageSprite];
+            if (imageSprite == 2) {
+                Vector2 newHeight = (uiMessage.image.transform as RectTransform).sizeDelta;
+                newHeight.y *= 0.5f;
+                (uiMessage.image.transform as RectTransform).sizeDelta = newHeight;
+            }
+
             float delta = (uiMessage.image.transform as RectTransform).sizeDelta.x * 1.5f;
             Vector3 newPos = uiMessage.message.transform.position;
             newPos.x += delta;
