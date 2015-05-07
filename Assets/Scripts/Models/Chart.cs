@@ -171,7 +171,7 @@ public class Chart : MonoBehaviour {
     GameObject SpawnChild(GameObject prefab, Vector3 pos) {
         GameObject go = Instantiate(prefab) as GameObject;
         go.transform.parent = transform;
-        go.transform.localPosition = pos;
+        go.transform.localPosition = pos + go.transform.position;
         return go;
     }
 

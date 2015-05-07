@@ -2,6 +2,7 @@ Note: quarter
 Note: quarter
 Note: quarter
 Note: quarter
+Rest: whole
 Note: quarter
 Note: quarter
 Note: half

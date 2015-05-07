@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteType: 3
-  displacement: 3
+  displacement: 4
   isRest: 0
   played: 0
 --- !u!212 &21206548
