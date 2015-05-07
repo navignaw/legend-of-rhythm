@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 861d3c09deb59de4b83cbf67f71608bb
-timeCreated: 1430960350
+timeCreated: 1430968531
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -57,9 +57,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 102
-        y: 103
+        y: 32
         width: 522
-        height: 930
+        height: 931
       alignment: 9
       pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -67,17 +67,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 902
-        y: 103
+        y: 32
         width: 522
-        height: 930
+        height: 931
       alignment: 9
       pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: quarterbirb_2
       rect:
         serializedVersion: 2
-        x: 1696
-        y: 105
+        x: 1702
+        y: 35
         width: 522
         height: 931
       alignment: 9
@@ -86,12 +86,12 @@ TextureImporter:
     - name: quarterbirb_3
       rect:
         serializedVersion: 2
-        x: 1599
-        y: 0
-        width: 801
-        height: 4
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        x: 2502
+        y: 36
+        width: 522
+        height: 931
+      alignment: 9
+      pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

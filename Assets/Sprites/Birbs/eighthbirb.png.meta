@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 96d0e425118b1064a9eaad95273e1dd0
-timeCreated: 1430932618
+timeCreated: 1430968669
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: eighthbirb_0
     21300002: eighthbirb_1
     21300004: eighthbirb_2
+    21300006: eighthbirb_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,9 +56,9 @@ TextureImporter:
     - name: eighthbirb_0
       rect:
         serializedVersion: 2
-        x: 102
-        y: 102
-        width: 671
+        x: 101
+        y: 29
+        width: 672
         height: 931
       alignment: 9
       pivot: {x: .400000006, y: .25}
@@ -66,7 +67,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1001
-        y: 102
+        y: 29
         width: 672
         height: 931
       alignment: 9
@@ -75,9 +76,19 @@ TextureImporter:
     - name: eighthbirb_2
       rect:
         serializedVersion: 2
-        x: 1902
-        y: 102
-        width: 671
+        x: 1901
+        y: 29
+        width: 672
+        height: 931
+      alignment: 9
+      pivot: {x: .400000006, y: .25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: eighthbirb_3
+      rect:
+        serializedVersion: 2
+        x: 2797
+        y: 33
+        width: 672
         height: 931
       alignment: 9
       pivot: {x: .400000006, y: .25}

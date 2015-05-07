@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 54cb380ba23cc8b4ab047a2ec842a12b
-timeCreated: 1430932587
+timeCreated: 1430968861
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: halfbirb_0
     21300002: halfbirb_1
     21300004: halfbirb_2
+    21300006: halfbirb_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -56,9 +57,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 102
-        y: 103
+        y: 29
         width: 522
-        height: 930
+        height: 931
       alignment: 9
       pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -66,9 +67,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 902
-        y: 103
+        y: 29
         width: 522
-        height: 930
+        height: 931
       alignment: 9
       pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -76,9 +77,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1702
-        y: 103
+        y: 33
         width: 522
-        height: 930
+        height: 931
+      alignment: 9
+      pivot: {x: .5, y: .25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: halfbirb_3
+      rect:
+        serializedVersion: 2
+        x: 2502
+        y: 29
+        width: 522
+        height: 931
       alignment: 9
       pivot: {x: .5, y: .25}
       border: {x: 0, y: 0, z: 0, w: 0}

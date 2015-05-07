@@ -1,12 +1,13 @@
 fileFormatVersion: 2
 guid: 22d61c3bae133ff42aa8a22ab4a91183
-timeCreated: 1430933673
+timeCreated: 1430968761
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: wholebirb_0
     21300002: wholebirb_1
     21300004: wholebirb_2
+    21300006: wholebirb_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -55,30 +56,40 @@ TextureImporter:
     - name: wholebirb_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 103
+        x: 32
+        y: 102
         width: 711
-        height: 593
+        height: 594
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: wholebirb_1
       rect:
         serializedVersion: 2
-        x: 833
-        y: 103
-        width: 710
-        height: 593
+        x: 832
+        y: 102
+        width: 711
+        height: 594
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: wholebirb_2
       rect:
         serializedVersion: 2
-        x: 1633
-        y: 103
-        width: 710
-        height: 593
+        x: 1632
+        y: 102
+        width: 711
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wholebirb_3
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 102
+        width: 703
+        height: 594
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
