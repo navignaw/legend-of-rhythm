@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(Song))]
 public class Chart : MonoBehaviour {
-    public Vector3 startingPos;
     public float barDisplacement = 1f; // spacing after each bar
     public int totalScore = 0;
 
@@ -22,14 +21,20 @@ public class Chart : MonoBehaviour {
 
     // For keeping track of current note:
     Note currentNote; // currently held note
-    float elapsedBeat = 0.0f; // how much of current note has elapsed
+    float elapsedBeat = 0f; // how much of current note has elapsed
+    float currentPos = 0f; // x position of last drawn sprite
     int lastNoteIndex = 0;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         song = GetComponent<Song>();
-        DrawNotes();
-        //song.PlaySong();
+    }
+
+    void Start () {
+        if (!Tutorial.CurrentTutorial) {
+            DrawNotes();
+            song.PlaySong();
+        }
     }
 
     // Update is called once per frame
@@ -38,14 +43,15 @@ public class Chart : MonoBehaviour {
 
 
     // Instantiate prefabs for each note, parsed from text file
-    void DrawNotes()
+    public void DrawNotes()
     {
         float beatCounter = 0.0f;
         float currentBeat = 0.0f;
-        float currentPos = 0.0f; // x position of last sprite
+        currentPos = Camera.main.ViewportToWorldPoint(Vector3.zero).x + barDisplacement;
 
         notes = new List<Note>();
         bars = new List<GameObject>();
+        reader.Reset();
 
         // TODO: draw time signature, etc.
         Vector3 pos = new Vector3(currentPos, 0, 0);
@@ -136,7 +142,9 @@ public class Chart : MonoBehaviour {
 
         // Compute score and play animation
         Score score = Score.ComputeScore(delay, true);
-        totalScore += score.value;
+        if (!currentNote.isRest) {
+            totalScore += score.value;
+        }
         currentNote.AnimateHit(score);
 
         if (currentNote.duration == 0 || score == Score.Miss) {
@@ -218,6 +226,22 @@ public class Chart : MonoBehaviour {
     // TODO: refactor to own UI script?
     void OnGUI() {
         GUILayout.Label("Score: " + totalScore.ToString(), GothamGUIStyle.Style);
+    }
+
+    public void Reset() {
+        foreach (Note note in notes) {
+            Destroy(note.gameObject);
+        }
+        foreach (GameObject bar in bars) {
+            Destroy(bar);
+        }
+        notes.Clear();
+        bars.Clear();
+
+        currentNote = null;
+        elapsedBeat = 0f;
+        lastNoteIndex = 0;
+        totalScore = 0;
     }
 
 }

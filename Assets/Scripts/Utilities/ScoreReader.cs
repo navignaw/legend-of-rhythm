@@ -10,8 +10,7 @@ public class ScoreReader : MonoBehaviour {
     StreamReader reader;
 
     // Use this for initialization
-    void Awake () {
-        reader = new StreamReader("Assets/Scores/" + score, Encoding.Default);
+    void Start () {
     }
 
     // Update is called once per frame
@@ -29,6 +28,13 @@ public class ScoreReader : MonoBehaviour {
 
             reader.Close();
         }
+    }
+
+    public void Reset() {
+        if (reader != null) {
+            reader.Close();
+        }
+        reader = new StreamReader("Assets/Scores/" + score, Encoding.Default);
     }
 
 }

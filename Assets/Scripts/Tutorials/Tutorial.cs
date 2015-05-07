@@ -15,8 +15,11 @@ public abstract class Tutorial : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         CurrentTutorial = this; // there should only be one tutorial per scene
+    }
+
+    void Start () {
         ProceedTutorial();
     }
 
@@ -45,27 +48,44 @@ public abstract class Tutorial : MonoBehaviour {
                 levelToLoad = "story3";
                 break;*/
             default:
-                levelToLoad = "title";
+                levelToLoad = "titleScreen";
                 break;
         }
         Application.LoadLevel(levelToLoad);
     }
 
     // Create text message
-    protected GameObject CreateMessage(Vector3 offset, string text, float duration) {
+    protected GameObject CreateMessage(int imageSprite, string text, float duration) {
         GameObject message = Instantiate(messagePrefab) as GameObject;
         message.transform.SetParent(transform, false);
         message.transform.localPosition = cow.localPosition + messageOffset;
-        message.GetComponent<UIMessage>().messageText = text;
-        message.GetComponent<UIMessage>().duration = duration;
-        message.GetComponent<UIMessage>().proceedTutorialOnClose = (duration >= 0);
+        UIMessage uiMessage = message.GetComponent<UIMessage>();
+        uiMessage.messageText = text;
+        uiMessage.duration = duration;
+        uiMessage.proceedTutorialOnClose = (duration >= 0);
+
+        // Show image and displace text
+        if (imageSprite >= 0) {
+            uiMessage.image.enabled = true;
+            uiMessage.image.sprite = uiMessage.sprites[imageSprite];
+            float delta = (uiMessage.image.transform as RectTransform).sizeDelta.x * 1.5f;
+            Vector3 newPos = uiMessage.message.transform.position;
+            newPos.x += delta;
+            uiMessage.message.transform.position = newPos;
+            Vector2 newSize = (uiMessage.message.transform as RectTransform).sizeDelta;
+            newSize.x -= delta;
+            (uiMessage.message.transform as RectTransform).sizeDelta = newSize;
+        }
         return message;
     }
+    protected GameObject CreateMessage(int imageSprite, string text) {
+        return CreateMessage(imageSprite, text, 0f);
+    }
     protected GameObject CreateMessage(string text, float duration) {
-        return CreateMessage(Vector3.zero, text, duration);
+        return CreateMessage(-1, text, duration);
     }
     protected GameObject CreateMessage(string text) {
-        return CreateMessage(Vector3.zero, text, 0);
+        return CreateMessage(-1, text, 0f);
     }
 
 }

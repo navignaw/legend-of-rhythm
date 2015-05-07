@@ -17,11 +17,11 @@ public class CameraController : MonoBehaviour {
     void Start () {
         camHeight = GetComponent<Camera>().orthographicSize * 2f;
         camWidth = GetComponent<Camera>().aspect * camHeight;
-        target = transform.position - offset;
+        target = Vector3.zero;
     }
 
     // Scroll to target (every measure)
-    void Update () {
+    void FixedUpdate () {
         if (Song.isPlaying && Song.currentSong.currentMeasure > lastMeasure) {
             lastMeasure = Song.currentSong.currentMeasure;
             List<GameObject> bars = Song.currentSong.chart.bars;
@@ -35,6 +35,10 @@ public class CameraController : MonoBehaviour {
         Vector3 newPos = transform.position;
         newPos.x = Mathf.Lerp(newPos.x, target.x, scrollSpeed * Time.deltaTime);
         transform.position = newPos + offset;
+    }
+
+    public void Reset() {
+        lastMeasure = 0;
     }
 
 }

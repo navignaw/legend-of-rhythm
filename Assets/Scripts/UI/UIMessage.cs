@@ -5,6 +5,9 @@ using System.Collections;
 public class UIMessage : MonoBehaviour {
     public Text message;
     public GameObject continueText;
+    public Image image;
+    public Sprite[] sprites;
+    
     public string messageText
     {
         get { return message.text; }

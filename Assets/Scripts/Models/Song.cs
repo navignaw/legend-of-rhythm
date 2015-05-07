@@ -43,7 +43,7 @@ public class Song : MonoBehaviour {
             currentMeasure = Mathf.FloorToInt(currentBeat / timeSignature.beats);
 
             // Check if we've reached end of song as determined by notes
-            if (currentMeasure >= chart.bars.Count - 1) {
+            if (currentMeasure >= chart.bars.Count - 2) {
                 EndSong();
             }
 
@@ -59,7 +59,15 @@ public class Song : MonoBehaviour {
 
     public void EndSong() {
         audioSource.Stop();
-        // TODO: show scores
+        currentNote = null;
+        currentMeasure = 0;
+        currentBeat = 0f;
+
+        if (Tutorial.CurrentTutorial) {
+            Tutorial.Proceed();
+        } else {
+            // TODO: show scores
+        }
         currentSong = null;
     }
 

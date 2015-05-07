@@ -136,7 +136,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 180
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
       propertyPath: m_SizeDelta.y
@@ -504,6 +504,7 @@ MonoBehaviour:
   charts:
   - {fileID: 813554734}
   messageOffset: {x: 80, y: 40, z: 0}
+  cameraController: {fileID: 1868005783}
 --- !u!1 &1868005777
 GameObject:
   m_ObjectHideFlags: 0

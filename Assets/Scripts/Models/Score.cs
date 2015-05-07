@@ -18,12 +18,12 @@ public class Score {
     const float OK_THRESHOLD = 0.6f;
 
     // Score for hitting notes
-    const int PERFECT_SCORE = 5;
-    const int WONDERFUL_SCORE = 4;
-    const int GOOD_SCORE = 3;
-    const int ALMOST_SCORE = 2;
-    const int POOR_SCORE = 1;
-    const int MISS_SCORE = 0;
+    public const int PERFECT_SCORE = 5;
+    public const int WONDERFUL_SCORE = 4;
+    public const int GOOD_SCORE = 3;
+    public const int ALMOST_SCORE = 2;
+    public const int POOR_SCORE = 1;
+    public const int MISS_SCORE = 0;
 
     // Score for releasing a note on time
     const int OK_SCORE = 3;
