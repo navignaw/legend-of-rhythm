@@ -106,7 +106,7 @@ public class Note : MonoBehaviour {
     // Show a flashy animation when the note is hit
     public void AnimateHit(Score score) {
         played = true;
-        if (!anim) {
+        if (!anim || !Song.currentSong) {
             return;
         }
 

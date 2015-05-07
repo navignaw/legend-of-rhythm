@@ -9,10 +9,25 @@ public class LoadSong : Tutorial {
     protected override void ProceedTutorial() {
         Song song = songs[SongToLoad];
         Chart chart = charts[SongToLoad];
-        chart.gameObject.SetActive(true);
-        chart.DrawNotes();
-        song.PlaySong();
-        currentMessage = CreateMessage("Now playing: " + song.songName + " by " + song.artist, -1);
+        switch (phase++) {
+            case 0:
+                chart.gameObject.SetActive(true);
+                chart.DrawNotes();
+                song.PlaySong();
+                currentMessage = CreateMessage("Now playing:\n" + song.songName + " by " + song.artist, -1);
+                break;
+
+            // Song completed
+            case 1:
+                Destroy(currentMessage);
+                CreateMessage("Song complete!\nYour score: " + chart.totalScore.ToString());
+                break;
+
+            default:
+                Application.LoadLevel("levelSelect");
+                break;
+
+        }
     }
 
 }
