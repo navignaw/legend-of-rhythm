@@ -41,6 +41,9 @@ public class Tutorial1 : Tutorial {
                 }
                 break;
 
+            case 5:
+                break;
+
             default:
                 CompleteTutorial(1);
                 break;

@@ -8,7 +8,7 @@ public class Chart : MonoBehaviour {
     public float barDisplacement = 1f; // spacing after each bar
     public int totalScore = 0;
 
-    const float NEXT_NOTE_THRESHOLD = 0.15f; // threshold before we register a hit as the next note
+    const float NEXT_NOTE_THRESHOLD = 0.5f; // threshold before we register a hit as the next note
 
     public List<Note> notes; // list of note objects (attached to birb prefab)
     public List<GameObject> bars; // list of bars
@@ -127,8 +127,8 @@ public class Chart : MonoBehaviour {
         float delay = elapsedBeat;
         float beatValue = notes[lastNoteIndex].beatValue * song.timeSignature.multiplier;
 
-        // If we're really close to next note, hit that one
-        if (beatValue - elapsedBeat < NEXT_NOTE_THRESHOLD && lastNoteIndex + 1 < notes.Count) {
+        // If we already played current note, try next one
+        if (notes[lastNoteIndex].played && beatValue - elapsedBeat < NEXT_NOTE_THRESHOLD && lastNoteIndex + 1 < notes.Count) {
             delay = elapsedBeat - beatValue;
             currentNote = notes[lastNoteIndex + 1];
         } else {

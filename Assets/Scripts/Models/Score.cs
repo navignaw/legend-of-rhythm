@@ -7,12 +7,11 @@ public class Score {
 
     // Delay thresholds for hitting notes
     // TODO: finetune
-    const float ALMOST_THRESHOLD = -0.05f;
-    const float PERFECT_THRESHOLD = 0.25f;
-    const float WONDERFUL_THRESHOLD = 0.3f;
-    const float GOOD_THRESHOLD = 0.4f;
-    const float POOR_THRESHOLD = 0.5f;
-    public const float MISS_THRESHOLD = 0.5f;
+    const float PERFECT_THRESHOLD = 0.15f;
+    const float WONDERFUL_THRESHOLD = 0.25f;
+    const float GOOD_THRESHOLD = 0.3f;
+    const float POOR_THRESHOLD = 0.4f;
+    public const float MISS_THRESHOLD = 0.4f;
 
     // Delay threshold for releasing a note
     const float OK_THRESHOLD = 0.6f;
@@ -21,7 +20,6 @@ public class Score {
     public const int PERFECT_SCORE = 5;
     public const int WONDERFUL_SCORE = 4;
     public const int GOOD_SCORE = 3;
-    public const int ALMOST_SCORE = 2;
     public const int POOR_SCORE = 1;
     public const int MISS_SCORE = 0;
 
@@ -31,7 +29,6 @@ public class Score {
     private static Score perfect = new Score("PERFECT", PERFECT_SCORE);
     private static Score wonderful = new Score("WONDERFUL", WONDERFUL_SCORE);
     private static Score good = new Score("GOOD", GOOD_SCORE);
-    private static Score almost = new Score("ALMOST", ALMOST_SCORE);
     private static Score poor = new Score("POOR", POOR_SCORE);
     private static Score miss = new Score("MISS", MISS_SCORE);
     private static Score ok = new Score("OK", OK_SCORE);
@@ -46,10 +43,6 @@ public class Score {
 
     public static Score Good {
         get { return good; }
-    }
-
-    public static Score Almost {
-        get { return almost; }
     }
 
     public static Score Poor {
@@ -70,9 +63,8 @@ public class Score {
     public static Score ComputeScore(float delay, bool isHit) {
         if (isHit) {
             // Hitting notes
-            if (delay < ALMOST_THRESHOLD) {
-                return Almost;
-            } else if (delay < PERFECT_THRESHOLD) {
+            delay = Mathf.Abs(delay);
+            if (delay < PERFECT_THRESHOLD) {
                 return Perfect;
             } else if (delay < WONDERFUL_THRESHOLD) {
                 return Wonderful;

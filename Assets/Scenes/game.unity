@@ -148,7 +148,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: offset
-      value: .150000006
+      value: .25
       objectReference: {fileID: 0}
     - target: {fileID: 11457500, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: score
