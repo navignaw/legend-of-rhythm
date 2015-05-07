@@ -107,19 +107,20 @@ public class Note : MonoBehaviour {
     public void AnimateHit(Score score) {
         if (isRest) {
             if (score.value > 0) {
-                // TODO: what to do on rest?
+                // TODO: hit a rest animation (angry)
             } else {
-                // didn't hit rest, good
+                // TODO: didn't touch rest animation (happy)
             }
         } else {
             // not a rest
             if (score.value > 0) {
+                // hit a note animation (happy)
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
                 anim.SetTrigger(hitHash);
                 anim.speed = Song.currentSong.beatTime;
                 score.ShowText(transform.position, Color.black);
             } else {
-                // TODO: replace with falling animation
+                // missed a note animation (die)
                 anim.SetTrigger(dieHash);
                 anim.speed = Song.currentSong.beatTime;
                 score.ShowText(transform.position, Color.red);
@@ -132,13 +133,13 @@ public class Note : MonoBehaviour {
 
     // Show a flashy animation when the note is released
     public void AnimateRelease(Score score) {
-        Debug.Log("working");
         if (score.value > 0) {
+            // release note animation (happy)
             anim.SetTrigger(releaseHash);
             GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.3f);
             score.ShowText(transform.position, Color.blue);
         } else {
-            // TODO: show animation for miss
+            // miss animation (die)
             anim.SetTrigger(dieHash);
             score.ShowText(transform.position, Color.red);
         }

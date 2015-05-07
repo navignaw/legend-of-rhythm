@@ -119,11 +119,11 @@ MonoBehaviour:
   songPos: 0
   currentBeat: 0
   currentMeasure: 0
-  offset: .0500000007
+  offset: .0299999993
   timeSignature:
     beats: 4
     unit: 1
-  chart: {fileID: 0}
+  chart: {fileID: 11452444}
   currentNote: {fileID: 0}
 --- !u!114 &11452444
 MonoBehaviour:

@@ -241,6 +241,10 @@ Prefab:
       propertyPath: offset
       value: .0299999993
       objectReference: {fileID: 0}
+    - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: chart
+      value: 
+      objectReference: {fileID: 813554734}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
   m_IsPrefabParent: 0

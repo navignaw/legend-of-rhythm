@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteType: 2
-  displacement: 1.79999995
+  displacement: 2
   isRest: 1
   played: 0
 --- !u!212 &21274120
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e044760ed85e61c48a711e63487b206e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79a8189fd3998674fb5f5b0f0cf60ac0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:

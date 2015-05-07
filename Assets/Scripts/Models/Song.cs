@@ -29,9 +29,8 @@ public class Song : MonoBehaviour {
     double startTick; // initial dspTime for offsetting
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         beatTime = 60f / bpm;
-        chart = GetComponent<Chart>();
         audioSource = GetComponent<AudioSource>();
     }
 

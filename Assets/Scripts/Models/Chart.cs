@@ -29,7 +29,7 @@ public class Chart : MonoBehaviour {
     void Start () {
         song = GetComponent<Song>();
         DrawNotes();
-        //song.PlaySong();
+        song.PlaySong();
     }
 
     // Update is called once per frame
@@ -88,7 +88,7 @@ public class Chart : MonoBehaviour {
         }
 
         // TODO: Add double bar
-        pos.x += 0.2f;
+        pos.x += 0.25f;
         bars.Add(SpawnChild(PrefabBarLine, pos));
     }
 
