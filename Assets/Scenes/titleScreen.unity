@@ -601,7 +601,7 @@ GameObject:
   - 114: {fileID: 808382359}
   - 114: {fileID: 808382358}
   m_Layer: 0
-  m_Name: Song Select
+  m_Name: Song Select Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1034,7 +1034,7 @@ GameObject:
   - 114: {fileID: 1868471206}
   - 114: {fileID: 1868471205}
   m_Layer: 0
-  m_Name: Button 2
+  m_Name: Quit Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
