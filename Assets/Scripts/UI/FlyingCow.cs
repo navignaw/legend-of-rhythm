@@ -3,9 +3,12 @@ using System.Collections;
 
 public class FlyingCow : MonoBehaviour {
 
+    Vector3 offset;
     private Vector3 target;
     // Use this for initialization
+
     void Start () {
+        offset = new Vector3(0f, 60.0f);
         target = transform.position;
     }
 
@@ -18,6 +21,7 @@ public class FlyingCow : MonoBehaviour {
     {
         if (transform.position != target)
         {
+            Debug.Log("hi");
             float x = target.x - transform.position.x;
             float y = target.y - transform.position.y;
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(x * 5.0f, y * 5.0f);
@@ -25,6 +29,6 @@ public class FlyingCow : MonoBehaviour {
     }
 
     public void SetTarget(Transform transformTarget) {
-        target = transformTarget.position;
+        target = transformTarget.position + offset;
     }
 }
