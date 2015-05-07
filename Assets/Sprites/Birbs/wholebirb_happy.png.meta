@@ -1,9 +1,11 @@
 fileFormatVersion: 2
-guid: 71aeab8f8e0e64741a4367d6791cbf7c
-timeCreated: 1430963425
+guid: 43a98c01a0810b34f9149a35ac498051
+timeCreated: 1431034186
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: wholebirb_happy_0
+    21300002: wholebirb_happy_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -26,29 +28,49 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 2
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 600
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: wholebirb_happy_0
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 102
+        width: 711
+        height: 594
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: wholebirb_happy_1
+      rect:
+        serializedVersion: 2
+        x: 1813
+        y: 102
+        width: 711
+        height: 594
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

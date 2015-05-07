@@ -194,7 +194,8 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9510526, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &565750132 stripped
@@ -779,3 +780,24 @@ MonoBehaviour:
   offset: {x: .25, y: 0, z: 0}
   scrollSpeed: 2
   offsetRight: 2
+--- !u!1 &1898641718 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 114812, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
+  m_PrefabInternal: {fileID: 138050105}
+--- !u!95 &1898641719
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1898641718}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 194ffef22d4d74b498ca4e64b9b16cc3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
