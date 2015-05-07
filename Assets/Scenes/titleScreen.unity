@@ -97,7 +97,7 @@ GameObject:
   - 224: {fileID: 254019081}
   - 222: {fileID: 254019080}
   - 114: {fileID: 254019079}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 44562fd5d82f1cb48a3cb7f71783f729, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -167,7 +167,7 @@ GameObject:
   - 114: {fileID: 260519058}
   - 114: {fileID: 260519054}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Story Mode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,7 +188,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -2.1500001, y: -35.3699989}
+  m_AnchoredPosition: {x: 0, y: -35}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &260519054
@@ -324,7 +324,7 @@ GameObject:
   - 224: {fileID: 465846710}
   - 222: {fileID: 465846712}
   - 114: {fileID: 465846711}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 44562fd5d82f1cb48a3cb7f71783f729, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Song Select
+  m_Text: Free Play
 --- !u!222 &465846712
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -518,9 +518,9 @@ RectTransform:
   m_Children:
   - {fileID: 603372859}
   - {fileID: 260519053}
-  - {fileID: 1575598572}
   - {fileID: 808382357}
   - {fileID: 1868471204}
+  - {fileID: 1575598572}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -600,8 +600,9 @@ GameObject:
   - 222: {fileID: 808382360}
   - 114: {fileID: 808382359}
   - 114: {fileID: 808382358}
-  m_Layer: 0
-  m_Name: Song Select
+  - 114: {fileID: 808382361}
+  m_Layer: 5
+  m_Name: Free Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,10 +620,10 @@ RectTransform:
   m_Children:
   - {fileID: 465846710}
   m_Father: {fileID: 528060188}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -2.4000001, y: -83}
+  m_AnchoredPosition: {x: 0, y: -80}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &808382358
@@ -693,6 +694,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 808382356}
+--- !u!114 &808382361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808382356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2107022448}
+          m_MethodName: SetTarget
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 808382357}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1161977732
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,7 +918,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -948,7 +979,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1575598572
+--- !u!224 &1575598572 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45,
     type: 2}
@@ -1001,7 +1032,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 44562fd5d82f1cb48a3cb7f71783f729, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -1012,9 +1043,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Story Mode
-
-'
+  m_Text: Story Mode
 --- !u!222 &1618305041
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1032,9 +1061,10 @@ GameObject:
   - 222: {fileID: 1868471208}
   - 114: {fileID: 1868471207}
   - 114: {fileID: 1868471206}
+  - 114: {fileID: 1868471209}
   - 114: {fileID: 1868471205}
-  m_Layer: 0
-  m_Name: Button 2
+  m_Layer: 5
+  m_Name: Quit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1052,10 +1082,10 @@ RectTransform:
   m_Children:
   - {fileID: 254019081}
   m_Father: {fileID: 528060188}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -2.07999992, y: -131.600006}
+  m_AnchoredPosition: {x: 0, y: -125}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1868471205
@@ -1151,7 +1181,37 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1868471203}
---- !u!114 &2107022448
+--- !u!114 &1868471209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868471203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2107022448}
+          m_MethodName: SetTarget
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1868471204}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!114 &2107022448 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11494392, guid: e32b6bf16dce0c340b6e5d26bfb8fd45,
     type: 2}
