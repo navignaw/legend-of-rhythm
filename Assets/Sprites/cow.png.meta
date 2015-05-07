@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: 2caf9760cfb1ced4186622a87b59d2f1
-timeCreated: 1430934285
+timeCreated: 1430983500
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: cow_0
+    21300002: cow_1
+    21300004: cow_2
+    21300006: cow_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -37,7 +41,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +52,47 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: cow_0
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 60
+        width: 683
+        height: 599
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cow_1
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 70
+        width: 687
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cow_2
+      rect:
+        serializedVersion: 2
+        x: 2154
+        y: 44
+        width: 689
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cow_3
+      rect:
+        serializedVersion: 2
+        x: 3159
+        y: 70
+        width: 687
+        height: 585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

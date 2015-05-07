@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11450246}
   - 114: {fileID: 11494392}
   - 50: {fileID: 5023042}
+  - 95: {fileID: 9510526}
   m_Layer: 5
   m_Name: cow
   m_TagString: Untagged
@@ -34,6 +35,23 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!95 &9510526
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114812}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 194ffef22d4d74b498ca4e64b9b16cc3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11450246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b54d460c9d328c4da336ae90b05dcaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
 --- !u!222 &22215640
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -87,7 +106,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 180, y: 120}
+  m_SizeDelta: {x: 150, y: 120}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:
