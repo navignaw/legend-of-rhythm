@@ -5,6 +5,7 @@ using System.Collections;
 public enum ButtonAction
 {
     STORYSELECT,
+    GAME,
     STORY1,
     STORY2,
     STORY3,
@@ -28,6 +29,9 @@ public class UIButton : MonoBehaviour
         {
             case ButtonAction.STORYSELECT:
                 Application.LoadLevel("levelSelect"); // level select
+                break;
+            case ButtonAction.GAME:
+                Application.LoadLevel("game");        // game
                 break;
             case ButtonAction.STORY1:
                 Application.LoadLevel("story1");      // tutorial 1 (basic notes)
