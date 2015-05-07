@@ -107,9 +107,9 @@ public class Note : MonoBehaviour {
     public void AnimateHit(Score score) {
         if (isRest) {
             if (score.value > 0) {
-                // TODO: hit a rest animation (angry)
+                anim.SetTrigger(hitHash);
             } else {
-                // TODO: didn't touch rest animation (happy)
+                anim.SetTrigger(dieHash);
             }
         } else {
             // not a rest
