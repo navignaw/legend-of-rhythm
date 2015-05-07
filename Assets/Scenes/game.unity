@@ -623,7 +623,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11457500, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: score
-      value: test.txt
+      value: threeLittleBirds.txt
       objectReference: {fileID: 0}
     - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: m_IsActive

@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action: 1
-  lockedLevel: 1
+  lockedLevel: 0
 --- !u!1 &1161977732
 GameObject:
   m_ObjectHideFlags: 0
