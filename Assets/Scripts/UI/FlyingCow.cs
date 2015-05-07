@@ -2,13 +2,11 @@
 using System.Collections;
 
 public class FlyingCow : MonoBehaviour {
-
-    Vector3 offset;
+    public Vector3 offset;
     private Vector3 target;
-    // Use this for initialization
 
+    // Use this for initialization
     void Start () {
-        offset = new Vector3(0f, 60.0f);
         target = transform.position;
     }
 

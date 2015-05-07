@@ -170,6 +170,10 @@ Prefab:
       propertyPath: m_Name
       value: Cow
       objectReference: {fileID: 0}
+    - target: {fileID: 11494392, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
+      propertyPath: offset.y
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
   m_IsPrefabParent: 0
