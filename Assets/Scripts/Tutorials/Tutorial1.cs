@@ -99,12 +99,12 @@ public class Tutorial1 : Tutorial {
 
             case 13:
                 Destroy(currentMessage);
-                // Proceed if player gets at least 10 goods and 2 oks
-                if (charts[2].totalScore >= Score.GOOD_SCORE * 10 + Score.OK_SCORE * 2) {
+                // Proceed if player gets at least 5 goods and 4 oks
+                if (charts[2].totalScore >= Score.GOOD_SCORE * 5 + Score.OK_SCORE * 4) {
                     CreateMessage("Excellent work!");
                 } else {
                     charts[2].totalScore = 0;
-                    CreateMessage("Uh oh! Remember to hold out half notes for two beats, and tap quarter notes for one. Try again!");
+                    CreateMessage("Uh oh! Remember to hold out whole notes for four beats and half notes for two beats. Try again!");
                     phase = 11;
                 }
                 break;

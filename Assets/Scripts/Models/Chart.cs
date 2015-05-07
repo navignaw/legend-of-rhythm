@@ -31,10 +31,6 @@ public class Chart : MonoBehaviour {
     }
 
     void Start () {
-        if (!Tutorial.CurrentTutorial) {
-            DrawNotes();
-            song.PlaySong();
-        }
     }
 
     // Update is called once per frame

@@ -20,7 +20,7 @@ public abstract class Tutorial : MonoBehaviour {
     }
 
     void Start () {
-        ProceedTutorial();
+        WaitAndProceed(1f);
     }
 
     // Update is called once per frame
@@ -41,10 +41,11 @@ public abstract class Tutorial : MonoBehaviour {
         CurrentTutorial = null;
         string levelToLoad;
         switch (level) {
-            /*case 1:
-                levelToLoad = "story2";
+            case 1:
+                LoadSong.SongToLoad = 0; // TODO: play tutorial song
+                levelToLoad = "game";
                 break;
-            case 2:
+            /*case 2:
                 levelToLoad = "story3";
                 break;*/
             default:
