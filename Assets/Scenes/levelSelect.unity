@@ -345,8 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291b778112247e448be677abcc2248a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
-  descriptionfield: {fileID: 1058805880}
+  descriptionField: {fileID: 1058805880}
   description: Hello
 --- !u!114 &193463490
 MonoBehaviour:
@@ -644,6 +643,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11417582, guid: 9c436763d2f51454e91b8f76c2bf096e, type: 2}
+      propertyPath: duration
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9c436763d2f51454e91b8f76c2bf096e, type: 2}
   m_IsPrefabParent: 0
@@ -819,8 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291b778112247e448be677abcc2248a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
-  descriptionfield: {fileID: 1058805880}
+  descriptionField: {fileID: 1058805880}
   description: heyayayayay
 --- !u!114 &934428912
 MonoBehaviour:
@@ -834,7 +836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action: 1
---- !u!1 &1058805880
+--- !u!1 &1058805880 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 136374, guid: 9c436763d2f51454e91b8f76c2bf096e, type: 2}
   m_PrefabInternal: {fileID: 837354393}
@@ -904,17 +906,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
---- !u!224 &1517214839
+--- !u!224 &1517214839 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22404150, guid: 9c436763d2f51454e91b8f76c2bf096e,
     type: 2}
   m_PrefabInternal: {fileID: 837354393}
---- !u!224 &1701496797
+--- !u!224 &1701496797 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45,
     type: 2}
   m_PrefabInternal: {fileID: 50841471}
---- !u!114 &1701496801
+--- !u!114 &1701496801 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11494392, guid: e32b6bf16dce0c340b6e5d26bfb8fd45,
     type: 2}
@@ -1092,8 +1094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291b778112247e448be677abcc2248a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
-  descriptionfield: {fileID: 1058805880}
+  descriptionField: {fileID: 1058805880}
   description: bonjour
 --- !u!114 &1741549751
 MonoBehaviour:

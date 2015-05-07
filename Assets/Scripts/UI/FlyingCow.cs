@@ -21,7 +21,6 @@ public class FlyingCow : MonoBehaviour {
     {
         if (transform.position != target)
         {
-            Debug.Log("hi");
             float x = target.x - transform.position.x;
             float y = target.y - transform.position.y;
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(x * 5.0f, y * 5.0f);

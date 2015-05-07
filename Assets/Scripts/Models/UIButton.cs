@@ -20,16 +20,16 @@ public class UIButton : MonoBehaviour
         switch (action)
         {
             case ButtonAction.STORYSELECT:
-                Application.LoadLevel("levelSelect");	// game scene
+                Application.LoadLevel("levelSelect");	// level select
                 break;
             case ButtonAction.STORY1:
-                Application.LoadLevel("story1");	// thread cutting tutorial
+                Application.LoadLevel("story1");	// tutorial 1 (basic notes)
                 break;
             case ButtonAction.STORY2:
-                Application.LoadLevel("story1");	// boat tutorial
+                Application.LoadLevel("story1");	// tutorial 2 (basic rests)
                 break;
             case ButtonAction.STORY3:
-                Application.LoadLevel("story1");	// menu tutorial
+                Application.LoadLevel("story1");	// tutorial 3 (eighth notes, syncopation)
                 break;
             case ButtonAction.MENU:
                 Application.LoadLevel("title");	// load menu
