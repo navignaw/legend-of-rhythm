@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour {
     void Start () {
         camHeight = GetComponent<Camera>().orthographicSize * 2f;
         camWidth = GetComponent<Camera>().aspect * camHeight;
+        target = transform.position - offset;
     }
 
     // Scroll to target (every measure)
