@@ -98,8 +98,8 @@ public class Note : MonoBehaviour {
         pos.y += on ? 0.1f : -0.1f;
         transform.position = pos;
 
-        if (isRest) {
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+        if (isRest && !played) {
+            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.75f);
         }
     }
 
@@ -112,15 +112,18 @@ public class Note : MonoBehaviour {
 
         if (isRest) {
             if (score.value > 0) {
+                // hit a rest (angry)
                 anim.SetTrigger(hitHash);
+                GetComponent<SpriteRenderer>().color = new Color(1f, 0.25f, 0.25f, 1f);
             } else {
+                // missed a rest (happy)
                 anim.SetTrigger(dieHash);
             }
         } else {
             // not a rest
             if (score.value > 0) {
                 // hit a note animation (happy)
-                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f);
+                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.75f);
                 anim.SetTrigger(hitHash);
                 anim.speed = Song.currentSong.beatTime;
                 score.ShowText(transform.position, Color.black);
@@ -137,7 +140,7 @@ public class Note : MonoBehaviour {
 
     // Show a flashy animation when the note is released
     public void AnimateRelease(Score score) {
-        if (!anim) {
+        if (!anim || isRest) {
             return;
         }
 
