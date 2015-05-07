@@ -105,6 +105,11 @@ public class Note : MonoBehaviour {
 
     // Show a flashy animation when the note is hit
     public void AnimateHit(Score score) {
+        played = true;
+        if (!anim) {
+            return;
+        }
+
         if (isRest) {
             if (score.value > 0) {
                 anim.SetTrigger(hitHash);
@@ -128,11 +133,14 @@ public class Note : MonoBehaviour {
                 falling = true;
             }
         }
-        played = true;
     }
 
     // Show a flashy animation when the note is released
     public void AnimateRelease(Score score) {
+        if (!anim) {
+            return;
+        }
+
         if (score.value > 0) {
             // release note animation (happy)
             anim.SetTrigger(releaseHash);

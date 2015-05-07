@@ -29,7 +29,7 @@ public class Chart : MonoBehaviour {
     void Start () {
         song = GetComponent<Song>();
         DrawNotes();
-        song.PlaySong();
+        //song.PlaySong();
     }
 
     // Update is called once per frame
@@ -217,9 +217,7 @@ public class Chart : MonoBehaviour {
 
     // TODO: refactor to own UI script?
     void OnGUI() {
-        GUIStyle style = new GUIStyle();
-        style.fontSize = 20;
-        GUILayout.Label("Score: " + totalScore.ToString(), style);
+        GUILayout.Label("Score: " + totalScore.ToString(), GothamGUIStyle.Style);
     }
 
 }
