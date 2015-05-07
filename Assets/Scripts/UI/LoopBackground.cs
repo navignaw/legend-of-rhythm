@@ -12,7 +12,7 @@ public class LoopBackground : MonoBehaviour {
         imageWidth = GetComponent<SpriteRenderer>().sprite.bounds.size.x;
         if (!isClone) {
             Vector3 newPosition = transform.position;
-            newPosition.x += imageWidth;
+            newPosition.x += imageWidth * transform.localScale.x;
             clone = Instantiate(gameObject, newPosition, Quaternion.identity) as GameObject;
             clone.transform.parent = gameObject.transform.parent;
             clone.GetComponent<LoopBackground>().isClone = true;
@@ -26,7 +26,7 @@ public class LoopBackground : MonoBehaviour {
     void OnBecameInvisible() {
         if (clone != null) {
             Vector3 newPosition = transform.position;
-            newPosition.x = clone.transform.position.x + imageWidth;
+            newPosition.x = clone.transform.position.x + imageWidth * transform.localScale.x;
             transform.position = newPosition;
         }
     }
