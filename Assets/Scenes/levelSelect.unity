@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action: 1
+  lockedLevel: 0
 --- !u!1 &382942988
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action: 1
+  lockedLevel: 2
 --- !u!1 &1058805880 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 136374, guid: 9c436763d2f51454e91b8f76c2bf096e, type: 2}
@@ -1112,6 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action: 1
+  lockedLevel: 1
 --- !u!1 &1773694965
 GameObject:
   m_ObjectHideFlags: 0

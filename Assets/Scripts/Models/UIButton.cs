@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public enum ButtonAction
@@ -14,6 +15,12 @@ public enum ButtonAction
 public class UIButton : MonoBehaviour
 {
     public ButtonAction action;
+    public int lockedLevel;
+
+    void Start() {
+        // disable tutorial buttons if not yet unlocked
+        GetComponent<Button>().interactable = PlayerPrefs.GetInt("levelUnlocked", 0) >= lockedLevel;
+    }
 
     public void OnMouseDown()
     {

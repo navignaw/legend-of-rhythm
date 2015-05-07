@@ -17,7 +17,7 @@ public class Tutorial1 : Tutorial {
                 break;
 
             case 2:
-                song.PlaySong();
+                songs[0].PlaySong();
                 break;
 
             default:

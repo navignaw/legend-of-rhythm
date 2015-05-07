@@ -5,8 +5,8 @@ public abstract class Tutorial : MonoBehaviour {
     public static Tutorial CurrentTutorial;
     public GameObject messagePrefab;
     public Transform cow;
-    public Song song;
-    public Chart chart;
+    public Song[] songs;
+    public Chart[] charts;
     public Vector3 messageOffset = Vector3.zero;
     protected int phase = 0;
 

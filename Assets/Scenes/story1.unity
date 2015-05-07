@@ -181,6 +181,34 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &703751290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 703751291}
+  m_Layer: 0
+  m_Name: Songs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &703751291
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 703751290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 987142569}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!224 &812000277 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45,
@@ -203,7 +231,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 703751291}
     m_Modifications:
     - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: m_LocalPosition.x
@@ -211,7 +239,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: m_LocalPosition.z
@@ -235,7 +263,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: offset
@@ -248,6 +276,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &987142569 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+  m_PrefabInternal: {fileID: 987142568}
 --- !u!1001 &1203283685
 Prefab:
   m_ObjectHideFlags: 0
@@ -467,8 +499,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messagePrefab: {fileID: 136374, guid: 9c436763d2f51454e91b8f76c2bf096e, type: 2}
   cow: {fileID: 812000277}
-  song: {fileID: 813554731}
-  chart: {fileID: 813554734}
+  songs:
+  - {fileID: 813554731}
+  charts:
+  - {fileID: 813554734}
   messageOffset: {x: 80, y: 40, z: 0}
 --- !u!1 &1868005777
 GameObject:

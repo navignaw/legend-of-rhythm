@@ -98,6 +98,7 @@ GameObject:
   - 222: {fileID: 260519057}
   - 114: {fileID: 260519056}
   - 114: {fileID: 260519055}
+  - 114: {fileID: 260519058}
   - 114: {fileID: 260519054}
   m_Layer: 5
   m_Name: Button
@@ -216,6 +217,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 260519052}
+--- !u!114 &260519058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 260519052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2107022448}
+          m_MethodName: SetTarget
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 260519053}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine,
+              Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &517636474
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +300,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &528060184
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +387,7 @@ RectTransform:
   - {fileID: 260519053}
   - {fileID: 1575598572}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -495,7 +526,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!1 &1279285239
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +610,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1001 &1575598571
 Prefab:
   m_ObjectHideFlags: 0
@@ -617,7 +648,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -673,12 +704,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11494392, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
       propertyPath: offset.x
-      value: -50
+      value: -200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e32b6bf16dce0c340b6e5d26bfb8fd45, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1575598572
+--- !u!224 &1575598572 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22473032, guid: e32b6bf16dce0c340b6e5d26bfb8fd45,
     type: 2}
@@ -751,3 +782,9 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1618305038}
+--- !u!114 &2107022448 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11494392, guid: e32b6bf16dce0c340b6e5d26bfb8fd45,
+    type: 2}
+  m_PrefabInternal: {fileID: 1575598571}
+  m_Script: {fileID: 11500000, guid: 3b54d460c9d328c4da336ae90b05dcaa, type: 3}
