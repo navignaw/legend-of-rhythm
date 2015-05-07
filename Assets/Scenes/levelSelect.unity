@@ -250,7 +250,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 193463486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 193463490}
+        m_MethodName: OnMouseDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &193463486
@@ -754,7 +766,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 934428909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 934428912}
+        m_MethodName: OnMouseDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &934428909
@@ -809,7 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54850f172ade48b4d8698917760e075e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: 3
+  action: 1
 --- !u!1 &1058805880
 GameObject:
   m_PrefabParentObject: {fileID: 136374, guid: 9c436763d2f51454e91b8f76c2bf096e, type: 2}
@@ -1015,7 +1039,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1741549748}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1741549751}
+        m_MethodName: OnMouseDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1741549748
@@ -1070,7 +1106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54850f172ade48b4d8698917760e075e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: 2
+  action: 1
 --- !u!1 &1773694965
 GameObject:
   m_ObjectHideFlags: 0
