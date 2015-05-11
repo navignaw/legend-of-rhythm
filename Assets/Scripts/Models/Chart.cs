@@ -183,8 +183,8 @@ public class Chart : MonoBehaviour {
     {
         foreach (string line in reader.ReadLine()) {
             // TODO: change formatting of strings from Note/Rest: type
-            string isRest = line.Substring(0, line.IndexOf(':'));
-            string noteTypeStr = line.Substring(line.IndexOf(':') + 2);
+            string isRest = line.Split(':')[0].Trim().ToLower();
+            string noteTypeStr = line.Split(':')[1].Trim().ToLower();
             NoteType noteType = NoteType.QUARTER;
 
             switch (noteTypeStr) {
@@ -214,7 +214,7 @@ public class Chart : MonoBehaviour {
                     break;
             }
 
-            yield return GetNotePrefab(noteType, isRest == "Rest");
+            yield return GetNotePrefab(noteType, isRest == "rest");
         }
     }
 

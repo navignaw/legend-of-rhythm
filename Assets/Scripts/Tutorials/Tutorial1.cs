@@ -88,7 +88,7 @@ public class Tutorial1 : Tutorial {
                 charts[2].Reset();
                 charts[2].DrawNotes();
                 cameraController.Reset();
-                CreateMessage("As a recap: whole notes are 4, half notes are 2, and quarter notes are 1 beat. Ready to begin?");
+                CreateMessage("Remember: whole notes are 4, half notes are 2, and quarter notes are 1 beat. Ready to begin?");
                 break;
 
             case 12:
