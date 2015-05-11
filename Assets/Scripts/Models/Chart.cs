@@ -47,7 +47,6 @@ public class Chart : MonoBehaviour {
 
         notes = new List<Note>();
         bars = new List<GameObject>();
-        reader.Reset();
 
         // TODO: draw time signature, etc.
         Vector3 pos = new Vector3(currentPos, 0, 0);

@@ -7,10 +7,16 @@ using System.Text;
 
 public class ScoreReader : MonoBehaviour {
     public string score;
-    StreamReader reader;
+    string[] lines;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
+        TextAsset textAsset = Resources.Load("Scores/" + score) as TextAsset;
+        if (textAsset == null) {
+            Debug.Log("failed to load score: " + score);
+            return;
+        }
+        lines = textAsset.text.Split("\n"[0]);
     }
 
     // Update is called once per frame
@@ -18,23 +24,9 @@ public class ScoreReader : MonoBehaviour {
     }
 
     public IEnumerable<string> ReadLine() {
-        string line;
-        using (reader) {
-            line = reader.ReadLine();
-            while (line != null) {
-                yield return line;
-                line = reader.ReadLine();
-            }
-
-            reader.Close();
+        foreach (string line in lines) {
+            yield return line;
         }
-    }
-
-    public void Reset() {
-        if (reader != null) {
-            reader.Close();
-        }
-        reader = new StreamReader("Assets/Scores/" + score, Encoding.Default);
     }
 
 }
