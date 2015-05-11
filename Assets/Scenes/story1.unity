@@ -302,6 +302,10 @@ Prefab:
       propertyPath: m_Name
       value: SongChart 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11457500, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: score
+      value: cowbells
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
   m_IsPrefabParent: 0
@@ -408,7 +412,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 1cd993cde90bc144cb971accd8c3d823, type: 3}
     - target: {fileID: 11457500, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: score
-      value: cowbells2.txt
+      value: cowbells2
       objectReference: {fileID: 0}
     - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: m_IsActive
@@ -661,7 +665,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 65409a92e3c9baf4e9fd02a768775ecb, type: 3}
     - target: {fileID: 11457500, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: score
-      value: cowbells3.txt
+      value: cowbells3
       objectReference: {fileID: 0}
     - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: m_IsActive
