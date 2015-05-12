@@ -5,9 +5,12 @@ public class FlyingCow : MonoBehaviour {
     public Vector3 offset;
     private Vector3 target;
 
+    Animator anim;
+
     // Use this for initialization
     void Start () {
         target = transform.position;
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,5 +30,9 @@ public class FlyingCow : MonoBehaviour {
 
     public void SetTarget(Transform transformTarget) {
         target = transformTarget.position + offset;
+    }
+
+    public void AnimateCowbell(bool on) {
+        anim.SetBool("playing", on);
     }
 }

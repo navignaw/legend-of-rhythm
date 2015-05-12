@@ -26,11 +26,13 @@ public class Tutorial1 : Tutorial {
             case 3:
                 // Play quarter note song
                 songs[0].PlaySong();
+                AnimateCowbell(true);
                 currentMessage = CreateMessage("Let's practice! Tap the spacebar once for each tap of my cowbell. Try to follow along with the birds on the fence!", -1);
                 break;
 
             case 4:
                 Destroy(currentMessage);
+                AnimateCowbell(false);
                 // Proceed if player gets at least 12 goods
                 if (charts[0].totalScore >= Score.GOOD_SCORE * 12) {
                     CreateMessage("Nicely done!");
@@ -62,11 +64,13 @@ public class Tutorial1 : Tutorial {
             case 8:
                 // Play half note song
                 songs[1].PlaySong();
+                AnimateCowbell(true);
                 currentMessage = CreateMessage("Remember, press and hold the spacebar on half notes for two taps of my cowbell.", -1);
                 break;
 
             case 9:
                 Destroy(currentMessage);
+                AnimateCowbell(false);
                 // Proceed if player gets at least 10 goods and 2 oks
                 if (charts[1].totalScore >= Score.GOOD_SCORE * 10 + Score.OK_SCORE * 2) {
                     CreateMessage("Great! You've mastered the half note.");
@@ -94,11 +98,13 @@ public class Tutorial1 : Tutorial {
             case 12:
                 // Play whole note song
                 songs[2].PlaySong();
+                AnimateCowbell(true);
                 currentMessage = CreateMessage("As a recap: whole notes are 4, half notes are 2, and quarter notes are 1 beat.", -1);
                 break;
 
             case 13:
                 Destroy(currentMessage);
+                AnimateCowbell(false);
                 // Proceed if player gets at least 5 goods and 4 oks
                 if (charts[2].totalScore >= Score.GOOD_SCORE * 5 + Score.OK_SCORE * 4) {
                     CreateMessage("Excellent work!");

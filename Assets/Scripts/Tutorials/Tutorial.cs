@@ -95,4 +95,8 @@ public abstract class Tutorial : MonoBehaviour {
         return CreateMessage(-1, text, 0f);
     }
 
+    protected void AnimateCowbell(bool on) {
+        cow.GetComponent<FlyingCow>().AnimateCowbell(on);
+    }
+
 }

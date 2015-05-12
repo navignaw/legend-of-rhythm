@@ -79,9 +79,6 @@ public class Note : MonoBehaviour {
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
-        if (anim) {
-            anim.speed = Song.currentSong.beatTime;
-        }
     }
 
     // Update is called once per frame
@@ -97,6 +94,10 @@ public class Note : MonoBehaviour {
     // TODO: Show a flashy animation on the beat
     // For now, we just bounce it up a few pixels
     public void AnimateBeat(bool on) {
+        if (anim) {
+            anim.speed = Song.currentSong.beatTime;
+        }
+
         Vector3 pos = transform.position;
         pos.y += on ? 0.1f : -0.1f;
         transform.position = pos;
