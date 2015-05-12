@@ -419,7 +419,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: bpm
-      value: 146.529999
+      value: 73.2649994
       objectReference: {fileID: 0}
     - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: offset

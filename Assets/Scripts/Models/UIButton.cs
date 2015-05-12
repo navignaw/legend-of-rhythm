@@ -11,6 +11,7 @@ public enum ButtonAction
     STORY2,
     STORY3,
     MENU,
+    CREDITS,
     QUIT
 }
 
@@ -48,6 +49,9 @@ public class UIButton : MonoBehaviour
                 break;
             case ButtonAction.MENU:
                 Application.LoadLevel("titleScreen"); // load menu
+                break;
+            case ButtonAction.CREDITS:
+                Application.LoadLevel("creditsScreen"); // load menu
                 break;
             case ButtonAction.QUIT:
                 Application.Quit();
