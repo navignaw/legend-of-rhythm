@@ -25,7 +25,9 @@ public class ScoreReader : MonoBehaviour {
 
     public IEnumerable<string> ReadLine() {
         foreach (string line in lines) {
-            yield return line;
+            if (line.Trim().Length > 0) {
+                yield return line;
+            }
         }
     }
 

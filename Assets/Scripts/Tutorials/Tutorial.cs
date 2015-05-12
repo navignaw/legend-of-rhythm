@@ -42,12 +42,13 @@ public abstract class Tutorial : MonoBehaviour {
         string levelToLoad;
         switch (level) {
             case 1:
-                LoadSong.SongToLoad = 0; // TODO: play tutorial song
+                LoadSong.SongToLoad = 0;
                 levelToLoad = "game";
                 break;
-            /*case 2:
-                levelToLoad = "story3";
-                break;*/
+            case 2:
+                LoadSong.SongToLoad = 1; // TODO: play tutorial song
+                levelToLoad = "game";
+                break;
             default:
                 levelToLoad = "titleScreen";
                 break;
