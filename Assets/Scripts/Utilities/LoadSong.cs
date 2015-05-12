@@ -5,6 +5,11 @@ public class LoadSong : Tutorial {
     public static int SongToLoad = 0;
     GameObject currentMessage;
 
+    void Awake() {
+        currentMessage = CreateMessage("Loading song...", -1);
+        CurrentTutorial = this;
+    }
+
     // Continue in tutorial
     protected override void ProceedTutorial() {
         Song song = songs[SongToLoad];
@@ -14,12 +19,15 @@ public class LoadSong : Tutorial {
                 chart.gameObject.SetActive(true);
                 chart.DrawNotes();
                 song.PlaySong();
-                currentMessage = CreateMessage("Now playing:\n" + song.songName + " by " + song.artist, -1);
+                Destroy(currentMessage);
+                CreateMessage("Now playing:\n" + song.songName + " by " + song.artist, 5);
+                break;
+
+            case 1:
                 break;
 
             // Song completed
-            case 1:
-                Destroy(currentMessage);
+            case 2:
                 CreateMessage("Song complete!\nYour score: " + chart.totalScore.ToString());
                 break;
 
