@@ -54,7 +54,7 @@ public class Tutorial3 : Tutorial {
             case 7:
                 charts[0].Reset();
                 charts[0].gameObject.SetActive(false);
-                CreateMessage("That's it for now! You're ready to go out and practice on all sorts of birds now.");
+                CreateMessage("Let's try one more song! After this, you'll be ready to go out and practice on all sorts of birds now.");
                 break;
 
             default:

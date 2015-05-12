@@ -20,6 +20,7 @@ public class Song : MonoBehaviour {
     public float currentBeat = 0.0f; // position in song in beats
     public int currentMeasure = 0; // current measure of song
     public float offset = 0.0f; // extra time before song begins (due to mp3 metadata)
+    public float offsetEnd = 0.0f; // extra time after song ends
     public TimeSignature timeSignature;
 
     public Chart chart;
@@ -51,7 +52,7 @@ public class Song : MonoBehaviour {
         startTick = AudioSettings.dspTime;
         SetAnimatorSpeed();
         currentSong = this;
-        Invoke("EndSong", audioSource.clip.length);
+        Invoke("EndSong", audioSource.clip.length + offsetEnd);
     }
 
     public void EndSong() {
