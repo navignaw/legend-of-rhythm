@@ -54,6 +54,7 @@ public class Song : MonoBehaviour {
     public void PlaySong() {
         audioSource.Play();
         startTick = AudioSettings.dspTime;
+        SetAnimatorSpeed();
         currentSong = this;
     }
 
@@ -76,6 +77,13 @@ public class Song : MonoBehaviour {
             chart.HitNote();
         } else if (Input.GetButtonUp("Hit")) {
             chart.ReleaseNote();
+        }
+    }
+
+    void SetAnimatorSpeed() {
+        Animator anim = Tutorial.CurrentTutorial.cow.GetComponent<Animator>();
+        if (anim) {
+            anim.speed = beatTime;
         }
     }
 

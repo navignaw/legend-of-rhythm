@@ -79,6 +79,9 @@ public class Note : MonoBehaviour {
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
+        if (anim) {
+            anim.speed = Song.currentSong.beatTime;
+        }
     }
 
     // Update is called once per frame
@@ -125,12 +128,10 @@ public class Note : MonoBehaviour {
                 // hit a note animation (happy)
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.75f);
                 anim.SetTrigger(hitHash);
-                anim.speed = Song.currentSong.beatTime;
                 score.ShowText(transform.position, Color.black);
             } else {
                 // missed a note animation (die)
                 anim.SetTrigger(dieHash);
-                anim.speed = Song.currentSong.beatTime;
                 score.ShowText(transform.position, Color.red);
                 gameObject.AddComponent<Rigidbody2D>(); // add gravity
                 falling = true;
