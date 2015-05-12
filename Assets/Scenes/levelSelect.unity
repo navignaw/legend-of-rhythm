@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   descriptionField: {fileID: 1058805880}
-  description: 'Level 3: Dotted notes and syncopation'
+  description: 'Level 3: Eighth notes and syncopation'
 --- !u!114 &842592807
 MonoBehaviour:
   m_ObjectHideFlags: 0

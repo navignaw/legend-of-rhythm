@@ -40,7 +40,7 @@ public class UIButton : MonoBehaviour
                 Application.LoadLevel("story2");      // tutorial 2 (basic rests)
                 break;
             case ButtonAction.STORY3:
-                Application.LoadLevel("story1");      // tutorial 3 (eighth notes, syncopation)
+                Application.LoadLevel("story3");      // tutorial 3 (eighth notes, syncopation)
                 break;
             case ButtonAction.MENU:
                 Application.LoadLevel("titleScreen"); // load menu
