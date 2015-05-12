@@ -12,6 +12,23 @@ Note: quarter
 Note: quarter
 
 Note: quarter
+Note: quarter
+Note: quarter
+Rest: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Rest: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Rest: quarter
+Note: quarter
+Rest: quarter
+Note: quarter
+Rest: quarter
+
+Note: quarter
 Rest: quarter
 Note: quarter
 Rest: quarter
@@ -24,3 +41,52 @@ Note: quarter
 Rest: half
 Note: half
 Rest: half
+
+Note: quarter
+Rest: quarter
+Note: quarter
+Rest: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Rest: quarter
+Note: quarter
+Rest: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Rest: quarter
+Note: quarter
+
+Note: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Rest: quarter
+Rest: half
+Note: half
+Note: half
+Note: quarter
+Note: quarter
+
+Note: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Note: quarter
+Note: half
+Note: half
+Note: half
+Note: whole
+Note: half
+Note: half
+Rest: quarter
+Note: quarter
+Note: half
+Note: whole
+Rest: whole

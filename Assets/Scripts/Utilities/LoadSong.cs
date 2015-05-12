@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class LoadSong : Tutorial {
-    public static int SongToLoad = 1;
+    public static int SongToLoad = 0;
+    public static string ReturnToLevel = "levelSelect";
     GameObject currentMessage;
 
     void Awake() {
@@ -32,7 +33,7 @@ public class LoadSong : Tutorial {
                 break;
 
             default:
-                Application.LoadLevel("levelSelect");
+                Application.LoadLevel(ReturnToLevel);
                 break;
 
         }

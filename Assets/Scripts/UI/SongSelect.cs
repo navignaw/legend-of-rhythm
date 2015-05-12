@@ -32,6 +32,7 @@ public class SongSelect : MonoBehaviour {
 
     public void PlaySong() {
         LoadSong.SongToLoad = currentSong;
+        LoadSong.ReturnToLevel = "songSelect";
         Application.LoadLevel("game");
     }
 }

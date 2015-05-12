@@ -40,20 +40,9 @@ public abstract class Tutorial : MonoBehaviour {
         }
         CurrentTutorial = null;
         string levelToLoad;
-        switch (level) {
-            case 1:
-                LoadSong.SongToLoad = 0;
-                levelToLoad = "game";
-                break;
-            case 2:
-                LoadSong.SongToLoad = 1; // TODO: play tutorial song
-                levelToLoad = "game";
-                break;
-            default:
-                levelToLoad = "titleScreen";
-                break;
-        }
-        Application.LoadLevel(levelToLoad);
+        LoadSong.SongToLoad = level - 1;
+        LoadSong.ReturnToLevel = "songSelect";
+        Application.LoadLevel("game");
     }
 
     // Create text message
