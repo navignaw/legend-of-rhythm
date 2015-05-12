@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class LoadSong : Tutorial {
-    public static int SongToLoad = 0;
+    public static int SongToLoad = 1;
     GameObject currentMessage;
 
     void Awake() {

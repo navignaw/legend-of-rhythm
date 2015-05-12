@@ -113,6 +113,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2000215073}
+  - {fileID: 1477124447}
   - {fileID: 783058442}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -153,7 +154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
       propertyPath: m_Name
@@ -312,9 +313,11 @@ MonoBehaviour:
   cow: {fileID: 1723162635}
   songs:
   - {fileID: 2000215075}
+  - {fileID: 1477124449}
   - {fileID: 783058444}
   charts:
   - {fileID: 2000215074}
+  - {fileID: 1477124448}
   - {fileID: 783058443}
   messageOffset: {x: 80, y: 40, z: 0}
 --- !u!1001 &1357817033
@@ -359,6 +362,96 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d3f7c3b377c752644b86760968862945, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1477124446
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 30556232}
+    m_Modifications:
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_Name
+      value: The Scientist
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271030, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 46a04a84a01ff4442897324bdeb088f5, type: 3}
+    - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: songName
+      value: The Scientist
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: artist
+      value: Coldplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: bpm
+      value: 146.529999
+      objectReference: {fileID: 0}
+    - target: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: offset
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 11457500, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: score
+      value: theScientist
+      objectReference: {fileID: 0}
+    - target: {fileID: 150300, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1477124447 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 450764, guid: e2398acacea7d4a4d93e6d744a83b283, type: 2}
+  m_PrefabInternal: {fileID: 1477124446}
+--- !u!114 &1477124448 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11452444, guid: e2398acacea7d4a4d93e6d744a83b283,
+    type: 2}
+  m_PrefabInternal: {fileID: 1477124446}
+  m_Script: {fileID: 11500000, guid: a7142c29f69c93c4090a68c73b9240ff, type: 3}
+--- !u!114 &1477124449 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11431824, guid: e2398acacea7d4a4d93e6d744a83b283,
+    type: 2}
+  m_PrefabInternal: {fileID: 1477124446}
+  m_Script: {fileID: 11500000, guid: 65a394f782ee10649a817017a620f7f5, type: 3}
 --- !u!1001 &1723162634
 Prefab:
   m_ObjectHideFlags: 0
