@@ -136,10 +136,8 @@ public class Chart : MonoBehaviour {
         }
 
         // Compute score and play animation
-        Score score = Score.ComputeScore(delay, true);
-        if (!currentNote.isRest) {
-            totalScore += score.value;
-        }
+        Score score = Score.ComputeScore(delay, true, currentNote.isRest);
+        totalScore += score.value;
         currentNote.AnimateHit(score);
 
         if (currentNote.duration == 0 || score == Score.Miss) {
@@ -158,7 +156,7 @@ public class Chart : MonoBehaviour {
             float duration = currentNote.duration * song.timeSignature.multiplier;
 
             // Compute score and play animation
-            Score score = Score.ComputeScore(duration - delay, false);
+            Score score = Score.ComputeScore(duration - delay, false, currentNote.isRest);
             totalScore += score.value;
             currentNote.AnimateRelease(score);
         }

@@ -26,12 +26,16 @@ public class Score {
     // Score for releasing a note on time
     public const int OK_SCORE = 3;
 
+    // Score for hitting a rest
+    public const int OOPS_SCORE = -3;
+
     private static Score perfect = new Score("PERFECT", PERFECT_SCORE);
     private static Score wonderful = new Score("WONDERFUL", WONDERFUL_SCORE);
     private static Score good = new Score("GOOD", GOOD_SCORE);
     private static Score poor = new Score("POOR", POOR_SCORE);
     private static Score miss = new Score("MISS", MISS_SCORE);
     private static Score ok = new Score("OK", OK_SCORE);
+    private static Score oops = new Score("OOPS", OOPS_SCORE);
 
     public static Score Perfect {
         get { return perfect; }
@@ -57,21 +61,31 @@ public class Score {
         get { return ok; }
     }
 
+    public static Score Oops {
+        get { return oops; }
+    }
+
     Vector3 target;
 
     // Update score based on timing of hit
-    public static Score ComputeScore(float delay, bool isHit) {
+    public static Score ComputeScore(float delay, bool isHit, bool isRest) {
         if (isHit) {
             // Hitting notes
             delay = Mathf.Abs(delay);
-            if (delay < PERFECT_THRESHOLD) {
-                return Perfect;
-            } else if (delay < WONDERFUL_THRESHOLD) {
-                return Wonderful;
-            } else if (delay < GOOD_THRESHOLD) {
-                return Good;
-            } else if (delay < POOR_THRESHOLD) {
-                return Poor;
+            if (isRest) {
+                if (delay < POOR_THRESHOLD) {
+                    return Oops;
+                }
+            } else {
+                if (delay < PERFECT_THRESHOLD) {
+                    return Perfect;
+                } else if (delay < WONDERFUL_THRESHOLD) {
+                    return Wonderful;
+                } else if (delay < GOOD_THRESHOLD) {
+                    return Good;
+                } else if (delay < POOR_THRESHOLD) {
+                    return Poor;
+                }
             }
         } else {
             // Releasing notes

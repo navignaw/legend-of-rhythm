@@ -115,10 +115,11 @@ public class Note : MonoBehaviour {
         }
 
         if (isRest) {
-            if (score.value > 0) {
+            if (score.value < 0) {
                 // hit a rest (angry)
                 anim.SetTrigger(hitHash);
                 GetComponent<SpriteRenderer>().color = new Color(1f, 0.25f, 0.25f, 1f);
+                score.ShowText(transform.position, Color.red);
             } else {
                 // missed a rest (happy)
                 anim.SetTrigger(dieHash);
