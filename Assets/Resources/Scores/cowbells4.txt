@@ -1,20 +1,2 @@
-Note: quarter
-Note: quarter
-Note: quarter
-Note: quarter
-Note: quarter
-Rest: quarter
-Note: quarter
-Rest: quarter
-Note: quarter
-Note: quarter
-Rest: quarter
-Note: quarter
-Note: half
-Note: half
-Note: half
-Rest: half
-Note: half
-Rest: half
-Note: whole
-Rest: whole
+QQQQ QqQq QQqQ
+HH Hh Hh W w

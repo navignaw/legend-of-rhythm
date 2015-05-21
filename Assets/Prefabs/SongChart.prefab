@@ -120,6 +120,7 @@ MonoBehaviour:
   currentBeat: 0
   currentMeasure: 0
   offset: .0299999993
+  offsetEnd: 1.5
   timeSignature:
     beats: 4
     unit: 1

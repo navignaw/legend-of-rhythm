@@ -181,26 +181,26 @@ public class Chart : MonoBehaviour {
     // Iterator that returns note prefab based off text file
     IEnumerable<GameObject> ReadNotesFromFile()
     {
-        foreach (string line in reader.ReadLine()) {
-            // TODO: change formatting of strings from Note/Rest: type
-            string isRest = line.Split(':')[0].Trim().ToLower();
-            string noteTypeStr = line.Split(':')[1].Trim().ToLower();
+        foreach (char note in reader.ReadNote()) {
+            bool isRest = char.IsLower(note);
             NoteType noteType = NoteType.QUARTER;
 
-            switch (noteTypeStr) {
-                case "eighth":
+            switch (note) {
+                case 'e': case 'E':
                     noteType = NoteType.EIGHTH;
                     break;
-                case "quarter":
+                case 'q': case 'Q':
                     noteType = NoteType.QUARTER;
                     break;
-                case "half":
+                case 'h': case 'H':
                     noteType = NoteType.HALF;
                     break;
-                case "whole":
+                case 'w': case 'W':
                     noteType = NoteType.WHOLE;
                     break;
-                case "dotted_eighth":
+
+                // TODO: deal with reading dotted notes
+                /*case "dotted_eighth":
                     noteType = NoteType.DOTTED_EIGHTH;
                     break;
                 case "dotted_quarter":
@@ -211,10 +211,14 @@ public class Chart : MonoBehaviour {
                     break;
                 case "dotted_whole":
                     noteType = NoteType.DOTTED_WHOLE;
+                    break;*/
+
+                default:
+                    Debug.Log("undefined note: " + note);
                     break;
             }
 
-            yield return GetNotePrefab(noteType, isRest == "rest");
+            yield return GetNotePrefab(noteType, isRest);
         }
     }
 

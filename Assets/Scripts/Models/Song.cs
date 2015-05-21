@@ -20,7 +20,7 @@ public class Song : MonoBehaviour {
     public float currentBeat = 0.0f; // position in song in beats
     public int currentMeasure = 0; // current measure of song
     public float offset = 0.0f; // extra time before song begins (due to mp3 metadata)
-    public float offsetEnd = 0.0f; // extra time after song ends
+    public float offsetEnd = 2.0f; // extra time after song ends
     public TimeSignature timeSignature;
 
     public Chart chart;
@@ -56,7 +56,6 @@ public class Song : MonoBehaviour {
     }
 
     public void EndSong() {
-        Debug.Log("song ended");
         audioSource.Stop();
         currentNote = null;
         currentMeasure = 0;

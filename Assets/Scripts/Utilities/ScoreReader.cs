@@ -23,10 +23,12 @@ public class ScoreReader : MonoBehaviour {
     void Update () {
     }
 
-    public IEnumerable<string> ReadLine() {
+    public IEnumerable<char> ReadNote() {
         foreach (string line in lines) {
-            if (line.Trim().Length > 0) {
-                yield return line;
+            foreach (char c in line) {
+                if (!char.IsWhiteSpace(c)) {
+                    yield return c;
+                }
             }
         }
     }
